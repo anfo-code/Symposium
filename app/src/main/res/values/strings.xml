@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Symposium</string>
+    <string name="let_s_get_started">Let\'s Get Started</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="login_alternative_text">Collaborate and create your own ideas together!</string>
+    <string name="sign_up">SIGN UP</string>
 </resources>

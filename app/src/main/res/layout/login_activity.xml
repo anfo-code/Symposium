@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundMainColor"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/tvLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nexa"
+        android:text="@string/app_name"
+        android:textColor="@color/textAccentColor"
+        android:textSize="@dimen/loginLabelSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.075" />
+
+    <ImageView
+        android:id="@+id/ivPerplo"
+        android:layout_width="@dimen/loginImageSize"
+        android:layout_height="@dimen/loginImageSize"
+        android:layout_marginTop="@dimen/loginMargin"
+        android:src="@drawable/perplo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabel" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/loginMargin"
+        android:fontFamily="@font/source_sans_pro_semibold"
+        android:text="@string/let_s_get_started"
+        android:textColor="@color/textMainColor"
+        android:textSize="@dimen/loginMainTextSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivPerplo" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="36dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/source_sans_pro"
+        android:gravity="center"
+        android:text="@string/login_alternative_text"
+        android:textColor="@color/textAlternativeColor"
+        android:textSize="@dimen/loginAlternativeTextSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/buttonSignIn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="36dp"
+        android:background="@drawable/button_filled_rounded_shape"
+        android:foreground="?attr/selectableItemBackground"
+        android:paddingHorizontal="2dp"
+        android:text="@string/sign_in"
+        android:textSize="@dimen/loginButtonTextSize"
+        android:textColor="@color/buttonTextColor"
+        android:layout_marginTop="@dimen/loginMargin"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        />
+
+    <Button
+        android:id="@+id/buttonSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="36dp"
+        android:background="@drawable/button_rounded_shape"
+        android:foreground="?attr/selectableItemBackground"
+        android:paddingHorizontal="2dp"
+        android:text="@string/sign_up"
+        android:textSize="@dimen/loginButtonTextSize"
+        android:textColor="@color/buttonBackgroundColor"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSignIn"
+        />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="splashScreenTextSize">62sp</dimen>
+    <dimen name="loginLabelSize">48sp</dimen>
+    <dimen name="loginMainTextSize">32sp</dimen>
+    <dimen name="loginButtonTextSize">24sp</dimen>
+    <dimen name="loginAlternativeTextSize">24sp</dimen>
+    <dimen name="loginImageSize">260dp</dimen>
+    <dimen name="loginMargin">24dp</dimen>
 </resources>
