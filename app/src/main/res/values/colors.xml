@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="navigationBackgroundColor">#252D3A</color>
+    <color name="navigationIconUnselectedColor">#818996</color>
+    <color name="navigationIconSelectedColor">#E5F1FD</color>
+    <color name="backgroundDarkerColor">#E7EBEE</color>
+    <color name="backgroundLighterColor">#FFFFFFFF</color>
+    <color name="textMainColor">#3B3F42</color>
+    <color name="textAlternativeColor">#BCBCBE</color>
+    <color name="textAccentColor">#679A95</color>
+    <color name="iconColor">#C1C1C1</color>
+    <color name="splashScreenTextColor">#E5F1FD</color>
+</resources>
