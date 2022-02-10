@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundMainColor"
+    tools:context=".SignUpActivity">
+
+    <TextView
+        android:id="@+id/tvLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nexa"
+        android:text="@string/app_name"
+        android:textColor="@color/textAccentColor"
+        android:textSize="@dimen/loginLabelSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.075" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/loginMargin"
+        android:layout_marginTop="90dp"
+        android:background="@color/backgroundAlternativeColor"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabel">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/loginMargin">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="Your name"
+                android:inputType="textCapSentences"
+                android:textColor="@color/textMainColor"
+                android:textColorHint="@color/textAlternativeColor"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/loginMargin"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="Email"
+                android:inputType="textCapSentences"
+                android:textColor="@color/textMainColor"
+                android:textColorHint="@color/textAlternativeColor"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etName" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/loginMargin"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="Password"
+                android:inputType="textCapSentences"
+                android:textColor="@color/textMainColor"
+                android:textColorHint="@color/textAlternativeColor"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etEmail" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etPasswordRepeat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/loginMargin"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="Re-enter password"
+                android:inputType="textCapSentences"
+                android:textColor="@color/textMainColor"
+                android:textColorHint="@color/textAlternativeColor"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/buttonSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="36dp"
+        android:background="@drawable/button_filled_rounded_shape"
+        android:foreground="?attr/selectableItemBackground"
+        android:paddingHorizontal="2dp"
+        android:text="@string/sign_up"
+        android:layout_marginTop="48dp"
+        android:textSize="@dimen/loginButtonTextSize"
+        android:textColor="@color/buttonTextColor"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        tools:layout_editor_absoluteX="36dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
