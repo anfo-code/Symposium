@@ -21,9 +21,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         binding = LoginActivityBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
-
-
         binding.buttonSignUp.setOnClickListener(this)
         binding.buttonSignIn.setOnClickListener(this)
     }

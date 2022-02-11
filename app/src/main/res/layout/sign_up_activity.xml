@@ -7,6 +7,27 @@
     android:background="@color/backgroundMainColor"
     tools:context=".SignUpActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/toolbarBackgroundColor"
+        android:theme="@style/CustomToolBarStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up_camel_case_with_space"
+            android:textColor="@color/toolbarTextAndIconColor"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:fontFamily="@font/nexa" />
+
+    </androidx.appcompat.widget.Toolbar>
+
     <TextView
         android:id="@+id/tvLabel"
         android:layout_width="wrap_content"
@@ -18,7 +39,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarSignUp"
         app:layout_constraintVertical_bias="0.075" />
 
 

@@ -25,4 +25,9 @@
         <item name="postSplashScreenTheme">@style/NoActionBarTheme</item>
     </style>
 
+    <style name="CustomToolBarStyle">
+        <item name="android:textColorPrimary">@color/toolbarTextAndIconColor</item>
+        <item name="android:colorControlNormal">@color/toolbarTextAndIconColor</item>
+    </style>
+
 </resources>
