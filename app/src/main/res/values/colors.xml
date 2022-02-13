@@ -22,4 +22,5 @@
     <color name="buttonTextColor">#FFFFFFFF</color>
     <color name="toolbarBackgroundColor">#1f2432</color>
     <color name="toolbarTextAndIconColor">#B0BBC5</color>
+    <color name="snackBarErrorColor">#B7485A</color>
 </resources>

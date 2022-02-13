@@ -5,4 +5,9 @@
     <string name="login_alternative_text">Collaborate and create your own ideas together!</string>
     <string name="sign_up">SIGN UP</string>
     <string name="sign_up_camel_case_with_space">Sign Up</string>
+    <string name="re_enter_password">Re-enter password</string>
+    <string name="password">Password</string>
+    <string name="your_name">Your name</string>
+    <string name="email">Email</string>
+    <string name="sing_in_camel_case_with_space">Sing In</string>
 </resources>

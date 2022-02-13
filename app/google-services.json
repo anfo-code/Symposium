@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "220109079049",
+    "project_id": "symposiumperplo",
+    "storage_bucket": "symposiumperplo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:220109079049:android:50cb1e6999d32753d56ed8",
+        "android_client_info": {
+          "package_name": "com.example.symposium"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "220109079049-2324ii1bipa23p8oo16rk7ahbeqcta6a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.symposium",
+            "certificate_hash": "7455243e59e15da643fa07d386df64182e7cd102"
+          }
+        },
+        {
+          "client_id": "220109079049-davvmbb3qdjgator4tkc6dmqicp6r6tl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBujOpcnM0go_7JshMagtOW0b8cAyhccc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "220109079049-davvmbb3qdjgator4tkc6dmqicp6r6tl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

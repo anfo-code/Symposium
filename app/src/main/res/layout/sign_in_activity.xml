@@ -4,12 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/constraintLayoutSignUp"
-    android:background="@color/backgroundMainColor"
-    tools:context=".activities.SignUpActivity">
+    tools:context=".activities.SignInActivity"
+    android:id="@+id/constraintLayoutSignIn">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarSignUp"
+        android:id="@+id/toolbarSignIn"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/toolbarBackgroundColor"
@@ -21,7 +20,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sign_up_camel_case_with_space"
+            android:text="@string/sing_in_camel_case_with_space"
             android:textColor="@color/toolbarTextAndIconColor"
             android:layout_gravity="center"
             android:textSize="20sp"
@@ -40,7 +39,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarSignUp"
+        app:layout_constraintTop_toBottomOf="@id/toolbarSignIn"
         app:layout_constraintVertical_bias="0.075" />
 
 
@@ -61,25 +60,10 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/loginMargin">
 
-
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/etName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/your_name"
-                android:inputType="textPersonName"
-                android:textColor="@color/textMainColor"
-                android:textColorHint="@color/textAlternativeColor"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/loginMargin"
                 android:hint="@string/email"
                 android:inputType="textEmailAddress"
                 android:textColor="@color/textMainColor"
@@ -87,7 +71,7 @@
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etName" />
+                app:layout_constraintTop_toTopOf="parent"  />
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/etPassword"
@@ -103,32 +87,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etEmail" />
 
-            <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/etPasswordRepeat"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/loginMargin"
-                android:hint="@string/re_enter_password"
-                android:inputType="textPassword"
-                android:textColor="@color/textMainColor"
-                android:textColorHint="@color/textAlternativeColor"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etPassword" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/buttonSignUp"
+        android:id="@+id/buttonSignIn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="36dp"
         android:background="@drawable/button_filled_rounded_shape"
         android:foreground="?attr/selectableItemBackground"
         android:paddingHorizontal="2dp"
-        android:text="@string/sign_up"
+        android:text="@string/sign_in"
         android:layout_marginTop="48dp"
         android:textSize="@dimen/loginButtonTextSize"
         android:textColor="@color/buttonTextColor"
