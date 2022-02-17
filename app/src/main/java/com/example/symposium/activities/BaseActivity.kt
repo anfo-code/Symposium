@@ -5,16 +5,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.os.HandlerCompat.postDelayed
 import com.example.symposium.R
+import com.example.symposium.databinding.DialogProgressBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 
 open class BaseActivity : AppCompatActivity() {
-
     private var doubleBackToExitPressedOnce = false
 
     private lateinit var progressDialog: Dialog
@@ -31,8 +32,6 @@ open class BaseActivity : AppCompatActivity() {
         progressDialog.setContentView(R.layout.dialog_progress)
 
         val tvProgressText = findViewById<TextView>(R.id.tvProgressText)
-
-        tvProgressText.text = text
 
         progressDialog.show()
     }
