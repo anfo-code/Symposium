@@ -1,5 +1,7 @@
 package com.example.symposium.firebase
 
+import android.util.Log
+import com.example.symposium.activities.SignInActivity
 import com.example.symposium.activities.SignUpActivity
 import com.example.symposium.models.User
 import com.example.symposium.utils.Constants
@@ -11,16 +13,30 @@ class FirestoreHandler() {
 
     private val FireStore = FirebaseFirestore.getInstance()
 
-     fun registerUser(activity: SignUpActivity, userInfo: User) {
-         FireStore.collection(Constants.USERS)
-             .document(getCurrentUserId())
-             .set(userInfo, SetOptions.merge())
-             .addOnSuccessListener {
-                 activity.userRegisteredSuccess()
-             }
-     }
+    fun registerUser(activity: SignUpActivity, userInfo: User) {
+        FireStore.collection(Constants.USERS)
+            .document(getCurrentUserId())
+            .set(userInfo, SetOptions.merge())
+            .addOnSuccessListener {
+                activity.userRegisteredSuccess()
+            }
+    }
 
-    fun getCurrentUserId(): String{
+    fun signInUser(activity: SignInActivity) {
+        FireStore.collection(Constants.USERS)
+            .document(getCurrentUserId())
+            .get()
+            .addOnSuccessListener { document ->
+                val loggedInUser = document.toObject(User::class.java)!!
+
+                activity.signInSuccess(loggedInUser)
+            }
+            .addOnFailureListener{
+                Log.e("Sign In User", "Error writing document")
+            }
+    }
+
+    private fun getCurrentUserId(): String {
         return FirebaseAuth.getInstance().currentUser!!.uid
     }
 }

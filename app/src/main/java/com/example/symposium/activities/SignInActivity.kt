@@ -1,19 +1,14 @@
 package com.example.symposium.activities
 
-import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
-import android.view.WindowInsets
-import android.view.WindowManager
-import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import com.example.symposium.R
 import com.example.symposium.databinding.SignInActivityBinding
+import com.example.symposium.firebase.FirestoreHandler
+import com.example.symposium.models.User
 import com.example.symposium.utils.Helper
 import com.google.firebase.auth.FirebaseAuth
 
@@ -54,20 +49,26 @@ class SignInActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun signIn() {
+        showProgressDialog("Please wait")
         val email = binding.etEmail.text.toString()
         val password = binding.etPassword.text.toString()
         if (validateForm(email, password)) {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        val intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
+                        FirestoreHandler().signInUser(this)
                     } else {
                         showErrorSnackBar("Oops! Something went wrong! Please, try again!")
                         Log.e("Error", task.exception!!.message.toString())
                     }
                 }
         }
+    }
+
+    fun signInSuccess (user: User) {
+        cancelProgressDialog()
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 
     private fun validateForm(email: String, password: String): Boolean {
