@@ -7,4 +7,6 @@
     <dimen name="loginAlternativeTextSize">24sp</dimen>
     <dimen name="loginImageSize">230dp</dimen>
     <dimen name="loginMargin">38dp</dimen>
+    <dimen name="loginCardViewMarginHorizontal">16dp</dimen>
+    <dimen name="loginCardViewMarginVertical">60dp</dimen>
 </resources>

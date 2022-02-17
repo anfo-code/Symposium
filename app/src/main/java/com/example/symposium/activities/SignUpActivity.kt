@@ -7,6 +7,8 @@ import android.view.View
 import android.widget.Toast
 import com.example.symposium.R
 import com.example.symposium.databinding.SignUpActivityBinding
+import com.example.symposium.firebase.FirestoreHandler
+import com.example.symposium.models.User
 import com.example.symposium.utils.Helper
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -26,6 +28,17 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
         helper.setFullScreen(window)
         binding.buttonSignUp.setOnClickListener(this)
         binding.constraintLayoutSignUp.setOnClickListener(this)
+    }
+
+    fun userRegisteredSuccess() {
+        Toast.makeText(
+            this,
+            "you have successfully registered ",
+            Toast.LENGTH_LONG
+        ).show()
+        cancelProgressDialog()
+        FirebaseAuth.getInstance().signOut()
+        finish()
     }
 
     private fun setToolbar() {
@@ -61,17 +74,11 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
             FirebaseAuth.getInstance()
                 .createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
-                    cancelProgressDialog()
                     if (task.isSuccessful) {
                         val firebaseUser: FirebaseUser = task.result!!.user!!
-                        val registeredEmail = firebaseUser.email!!
-                        Toast.makeText(
-                            this,
-                            "$name you have successfully registered the email address $email",
-                            Toast.LENGTH_LONG
-                        ).show()
-                        FirebaseAuth.getInstance().signOut()
-                        finish()
+                        val user = User(firebaseUser.uid, name, email)
+
+                        FirestoreHandler().registerUser(this, user)
                     } else {
                         showErrorSnackBar("Oops! Something went wrong! Please, try again!")
                         Log.e("Error", task.exception!!.message.toString())
