@@ -1,17 +1,21 @@
-package com.example.symposium.activities
+package com.example.symposium.utils
 
+import android.app.Activity
 import android.app.Dialog
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
+import android.view.View
+import android.view.Window
+import android.view.WindowInsets
+import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
-import androidx.core.os.HandlerCompat.postDelayed
 import com.example.symposium.R
-import com.example.symposium.databinding.DialogProgressBinding
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 
@@ -25,13 +29,37 @@ open class BaseActivity : AppCompatActivity() {
         setContentView(R.layout.base_activity)
     }
 
+    fun setFullScreen(window: Window) {
+        @Suppress("DEPRECATION")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.hide(WindowInsets.Type.statusBars())
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
+    }
+
+    fun hideKeyboard(activity: Activity) {
+        val imm = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        //Find the currently focused view, so we can grab the correct window token from it.
+        var view = activity.currentFocus
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = View(activity)
+        }
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
+    }
 
     fun showProgressDialog(text: String) {
         progressDialog = Dialog(this)
 
         progressDialog.setContentView(R.layout.dialog_progress)
 
-        val tvProgressText = findViewById<TextView>(R.id.tvProgressText)
+        val tvProgressText = progressDialog.findViewById<TextView>(R.id.tvProgressText)
+
+        tvProgressText.text = text
 
         progressDialog.show()
     }
@@ -41,7 +69,12 @@ open class BaseActivity : AppCompatActivity() {
     }
 
     fun getCurrentUserID(): String {
-        return FirebaseAuth.getInstance().currentUser!!.uid
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        var currentUserID = ""
+        if (currentUser != null){
+            currentUserID = currentUser.uid
+        }
+        return currentUserID
     }
 
     fun doubleBackToExit() {
@@ -68,6 +101,8 @@ open class BaseActivity : AppCompatActivity() {
         snackBarView.setBackgroundColor(ContextCompat.getColor(this, R.color.snackBarErrorColor))
         snackBar.show()
     }
+
+
 
 
 }

@@ -11,9 +11,12 @@
         android:theme="@style/Theme.Symposium">
         <activity
             android:name=".activities.MainActivity"
-            android:exported="false" />
+            android:label=""
+            android:screenOrientation="portrait"
+            android:exported="false"
+            android:theme="@style/NoActionBarTheme"/>
         <activity
-            android:name=".activities.BaseActivity"
+            android:name=".utils.BaseActivity"
             android:exported="false" />
         <activity
             android:name=".activities.SignInActivity"

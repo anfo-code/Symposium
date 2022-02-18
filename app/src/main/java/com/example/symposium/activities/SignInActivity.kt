@@ -9,14 +9,13 @@ import com.example.symposium.R
 import com.example.symposium.databinding.SignInActivityBinding
 import com.example.symposium.firebase.FirestoreHandler
 import com.example.symposium.models.User
-import com.example.symposium.utils.Helper
+import com.example.symposium.utils.BaseActivity
 import com.google.firebase.auth.FirebaseAuth
 
 
 class SignInActivity : BaseActivity(), View.OnClickListener {
 
     private lateinit var binding: SignInActivityBinding
-    private val helper = Helper()
     private lateinit var auth: FirebaseAuth
 
 
@@ -33,17 +32,17 @@ class SignInActivity : BaseActivity(), View.OnClickListener {
         binding.buttonSignIn.setOnClickListener(this)
         binding.constraintLayoutSignIn.setOnClickListener(this)
 
-        helper.setFullScreen(window)
+        setFullScreen(window)
     }
 
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.buttonSignIn -> {
                 signIn()
-                helper.hideKeyboard(this)
+                hideKeyboard(this)
             }
             R.id.constraintLayoutSignIn -> {
-                helper.hideKeyboard(this)
+                hideKeyboard(this)
             }
         }
     }

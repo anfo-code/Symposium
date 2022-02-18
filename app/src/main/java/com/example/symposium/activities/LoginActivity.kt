@@ -2,17 +2,13 @@ package com.example.symposium.activities
 
 
 import android.content.Intent
-import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.view.WindowInsets
-import android.view.WindowManager
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.symposium.R
 import com.example.symposium.databinding.LoginActivityBinding
+import com.example.symposium.utils.BaseActivity
 
 
 class LoginActivity : BaseActivity(), View.OnClickListener {
@@ -25,38 +21,29 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
         val splashScreen = installSplashScreen()
 
+        if (getCurrentUserID().isNotEmpty()){
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }
+
         binding = LoginActivityBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        setFullScreen()
+        setFullScreen(window)
 
         binding.buttonSignUp.setOnClickListener(this)
         binding.buttonSignIn.setOnClickListener(this)
 
     }
 
-    private fun setFullScreen() {
-        @Suppress("DEPRECATION")
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.insetsController?.hide(WindowInsets.Type.statusBars())
-        } else {
-            window.setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
-            )
-        }
-    }
-
     override fun onClick(v: View?) {
         when (v!!.id) {
             R.id.buttonSignIn -> {
-                val intent = Intent(this, SignInActivity::class.java)
-                startActivity(intent)
+                startActivity(Intent(this, SignInActivity::class.java))
             }
             R.id.buttonSignUp -> {
-                val intent = Intent(this, SignUpActivity::class.java)
-                startActivity(intent)
+                startActivity(Intent(this, SignUpActivity::class.java))
             }
         }
     }
