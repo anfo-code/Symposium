@@ -2,18 +2,17 @@ package com.example.symposium.utils
 
 import android.app.Activity
 import android.app.Dialog
-import android.os.Build
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
-import android.view.Window
-import android.view.WindowInsets
-import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import com.example.symposium.R
 import com.google.android.material.snackbar.Snackbar
@@ -29,18 +28,6 @@ open class BaseActivity : AppCompatActivity() {
         setContentView(R.layout.activity_base)
     }
 
-    fun setFullScreen(window: Window) {
-        @Suppress("DEPRECATION")
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.insetsController?.hide(WindowInsets.Type.statusBars())
-        } else {
-            window.setFlags(
-                WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN
-            )
-        }
-    }
-
     fun hideKeyboard(activity: Activity) {
         val imm = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         //Find the currently focused view, so we can grab the correct window token from it.
@@ -50,6 +37,17 @@ open class BaseActivity : AppCompatActivity() {
             view = View(activity)
         }
         imm.hideSoftInputFromWindow(view.windowToken, 0)
+    }
+
+    fun setNightMode() {
+        val appSettingPrefs: SharedPreferences = getSharedPreferences("AppSettingPrefs", 0)
+        val isDayModeOn: Boolean = appSettingPrefs.getBoolean("NightMode", false)
+
+        if (isDayModeOn) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        }
     }
 
     fun showProgressDialog(text: String) {
@@ -71,7 +69,7 @@ open class BaseActivity : AppCompatActivity() {
     fun getCurrentUserID(): String {
         val currentUser = FirebaseAuth.getInstance().currentUser
         var currentUserID = ""
-        if (currentUser != null){
+        if (currentUser != null) {
             currentUserID = currentUser.uid
         }
         return currentUserID
@@ -91,7 +89,7 @@ open class BaseActivity : AppCompatActivity() {
         ).show()
 
         Handler(Looper.myLooper()!!)
-            .postDelayed({doubleBackToExitPressedOnce = false}, 2000)
+            .postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
     }
 
     fun showErrorSnackBar(message: String) {
@@ -101,8 +99,6 @@ open class BaseActivity : AppCompatActivity() {
         snackBarView.setBackgroundColor(ContextCompat.getColor(this, R.color.snackBarErrorColor))
         snackBar.show()
     }
-
-
 
 
 }

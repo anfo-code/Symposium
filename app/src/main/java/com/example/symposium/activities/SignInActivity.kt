@@ -32,7 +32,6 @@ class SignInActivity : BaseActivity(), View.OnClickListener {
         binding.buttonSignIn.setOnClickListener(this)
         binding.constraintLayoutSignIn.setOnClickListener(this)
 
-        setFullScreen(window)
     }
 
     override fun onClick(v: View?) {

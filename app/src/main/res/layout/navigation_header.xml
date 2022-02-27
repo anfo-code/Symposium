@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/headerBackground"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
     android:clickable="true"
     >
-
 
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -20,8 +18,19 @@
         app:civ_border_width="@dimen/headerImageCircularBorderWidth"
         android:layout_marginTop="@dimen/headerImageMarginTop"
         android:layout_marginStart="@dimen/headerHorizontalMargin"
-        android:layout_marginBottom="@dimen/headerImageMargin"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivNightMode"
+        android:layout_width="@dimen/headerNightModeIconSize"
+        android:layout_height="@dimen/headerNightModeIconSize"
+        android:src="@drawable/ic_night_mode_on"
+        android:theme="@style/NoActionBarTheme"
+        android:layout_marginTop="@dimen/headerImageMarginTop"
+        android:layout_marginEnd="@dimen/headerNightModeIconMarginEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 
@@ -30,16 +39,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivNavigationHeaderImage"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="@dimen/headerHorizontalMargin"
+        android:paddingBottom="@dimen/headerTextViewPaddingBottom"
         android:text="User Name"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
-        android:paddingBottom="@dimen/headerTextViewPaddingBottom"
-        />
+        android:layout_marginTop="@dimen/headerTextViewMarginTop"
+        android:layout_marginStart="@dimen/headerHorizontalMargin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivNavigationHeaderImage" />
 
 
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

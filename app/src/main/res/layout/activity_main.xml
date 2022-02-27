@@ -41,8 +41,11 @@
         android:id="@+id/navView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:background="@color/navigationViewBackground"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
+        app:itemTextColor="@color/navigationViewMenuItemText"
+        app:itemIconTint="@color/navigationViewMenuItemIcon"
         app:headerLayout="@layout/navigation_header"
         app:menu="@menu/navigation_drawer_menu"
         />

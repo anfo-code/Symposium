@@ -1,10 +1,10 @@
 package com.example.symposium.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.symposium.databinding.ActivitySettingsBinding
+import com.example.symposium.utils.BaseActivity
 
-class SettingsActivity : AppCompatActivity() {
+class SettingsActivity : BaseActivity() {
 
     private lateinit var binding: ActivitySettingsBinding
 
@@ -14,6 +14,7 @@ class SettingsActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
 
         setToolbar()
     }

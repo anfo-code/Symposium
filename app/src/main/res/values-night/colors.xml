@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="navigationBackgroundColor">#000000</color>
+    <color name="navigationIconUnselectedColor">#ffffff</color>
+    <color name="navigationIconSelectedColor">#D1D4D6</color>
+    <color name="backgroundAlternativeColor">#3a3a3a</color>
+    <color name="backgroundMainColor">#111111</color>
+    <color name="textMainColor">#ffffff</color>
+    <color name="textAlternativeColor">#a7a8a8</color>
+    <color name="textAccentColor">#5cb4d3</color>
+    <color name="iconColor">#C1C1C1</color>
+    <color name="splashScreenTextColor">#E5F1FD</color>
+    <color name="buttonBackgroundColor">#35b7ff</color>
+    <color name="buttonTextColor">#ffffff</color>
+    <color name="toolbarBackgroundColor">#1b1b1b</color>
+    <color name="toolbarTextAndIconColor">#ffffff</color>
+    <color name="snackBarErrorColor">#B7485A</color>
+    <color name="headerBackground">#121212</color>
+    <color name="navigationViewBackground">#1b1b1b</color>
+    <color name="topBarColor">#090A0A</color>
+    <color name="navigationViewMenuItemText">#ffffff</color>
+    <color name="navigationViewMenuItemIcon">#ffffff</color>
+
+</resources>

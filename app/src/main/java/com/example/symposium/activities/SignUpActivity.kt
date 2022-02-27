@@ -24,7 +24,6 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
         setContentView(binding.root)
 
         setToolbar()
-        setFullScreen(window)
         binding.buttonSignUp.setOnClickListener(this)
         binding.constraintLayoutSignUp.setOnClickListener(this)
     }

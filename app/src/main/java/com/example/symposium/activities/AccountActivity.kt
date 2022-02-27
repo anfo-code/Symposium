@@ -1,10 +1,10 @@
 package com.example.symposium.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.symposium.databinding.ActivityAccountBinding
+import com.example.symposium.utils.BaseActivity
 
-class AccountActivity : AppCompatActivity() {
+class AccountActivity : BaseActivity() {
 
     private lateinit var binding: ActivityAccountBinding
 
@@ -12,6 +12,7 @@ class AccountActivity : AppCompatActivity() {
         binding = ActivityAccountBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
 
         setToolbar()
     }

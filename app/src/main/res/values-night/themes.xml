@@ -2,12 +2,12 @@
     <!-- Base application theme. -->
     <style name="Theme.Symposium" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
@@ -15,15 +15,30 @@
     </style>
 
     <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="drawerArrowStyle">@style/ButtonStyleToggle</item>
+        <item name="colorPrimaryDark">@color/topBarColor</item>
+    </style>
 
+    <style name="ButtonStyleToggle" parent="Widget.AppCompat.DrawerArrowToggle" >
+        <item name="spinBars">true</item>
+        <item name="color">@color/toolbarTextAndIconColor</item>
     </style>
 
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
-
         <item name="windowSplashScreenBackground">@color/backgroundMainColor</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
         <item name="postSplashScreenTheme">@style/NoActionBarTheme</item>
+    </style>
 
+    <style name="CustomToolBarStyle">
+        <item name="android:textColorPrimary">@color/toolbarTextAndIconColor</item>
+        <item name="android:colorControlNormal">@color/toolbarTextAndIconColor</item>
+    </style>
+
+    <style name="DrawerActionBarTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
     </style>
 
 </resources>

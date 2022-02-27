@@ -19,6 +19,8 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
         cancelNightMode()
 
+        setNightMode()
+
         val splashScreen = installSplashScreen()
 
         if (getCurrentUserID().isNotEmpty()){
@@ -30,7 +32,6 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        setFullScreen(window)
 
         binding.buttonSignUp.setOnClickListener(this)
         binding.buttonSignIn.setOnClickListener(this)

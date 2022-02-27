@@ -16,6 +16,7 @@
 
     <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="drawerArrowStyle">@style/ButtonStyleToggle</item>
+        <item name="colorPrimaryDark">@color/topBarColor</item>
     </style>
 
     <style name="ButtonStyleToggle" parent="Widget.AppCompat.DrawerArrowToggle" >
@@ -32,12 +33,6 @@
     <style name="CustomToolBarStyle">
         <item name="android:textColorPrimary">@color/toolbarTextAndIconColor</item>
         <item name="android:colorControlNormal">@color/toolbarTextAndIconColor</item>
-    </style>
-
-    <style name="DrawerActionBarTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
     </style>
 
 </resources>
