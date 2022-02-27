@@ -6,17 +6,17 @@ import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
 import com.example.symposium.R
-import com.example.symposium.databinding.MainActivityBinding
+import com.example.symposium.databinding.ActivityMainBinding
 import com.example.symposium.utils.BaseActivity
 
 class MainActivity : BaseActivity(), View.OnClickListener {
 
-    private lateinit var binding: MainActivityBinding
+    private lateinit var binding: ActivityMainBinding
     private lateinit var toggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        binding = MainActivityBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
 
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -33,7 +33,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
 
     //TODO Set log out functionality
     //TODO Set night mode functionality
-    //TODO Set Users data show functionality
+    //TODO Set Users data and avatar show functionality
     //TODO Set change name functionality
 
     override fun onClick(v: View?) {

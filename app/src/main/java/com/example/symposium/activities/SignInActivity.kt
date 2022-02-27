@@ -6,7 +6,7 @@ import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import com.example.symposium.R
-import com.example.symposium.databinding.SignInActivityBinding
+import com.example.symposium.databinding.ActivitySignInBinding
 import com.example.symposium.firebase.FirestoreHandler
 import com.example.symposium.models.User
 import com.example.symposium.utils.BaseActivity
@@ -15,12 +15,12 @@ import com.google.firebase.auth.FirebaseAuth
 
 class SignInActivity : BaseActivity(), View.OnClickListener {
 
-    private lateinit var binding: SignInActivityBinding
+    private lateinit var binding: ActivitySignInBinding
     private lateinit var auth: FirebaseAuth
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = SignInActivityBinding.inflate(layoutInflater)
+        binding = ActivitySignInBinding.inflate(layoutInflater)
 
         super.onCreate(savedInstanceState)
         setContentView(binding.root)

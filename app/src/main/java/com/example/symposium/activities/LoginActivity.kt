@@ -7,12 +7,12 @@ import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.symposium.R
-import com.example.symposium.databinding.LoginActivityBinding
+import com.example.symposium.databinding.ActivityLoginBinding
 import com.example.symposium.utils.BaseActivity
 
 
 class LoginActivity : BaseActivity(), View.OnClickListener {
-       private lateinit var binding : LoginActivityBinding
+       private lateinit var binding : ActivityLoginBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +26,7 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
             finish()
         }
 
-        binding = LoginActivityBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 

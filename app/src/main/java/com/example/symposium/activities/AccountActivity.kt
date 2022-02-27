@@ -2,15 +2,14 @@ package com.example.symposium.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.symposium.R
-import com.example.symposium.databinding.AccountActivityBinding
+import com.example.symposium.databinding.ActivityAccountBinding
 
 class AccountActivity : AppCompatActivity() {
 
-    private lateinit var binding: AccountActivityBinding
+    private lateinit var binding: ActivityAccountBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = AccountActivityBinding.inflate(layoutInflater)
+        binding = ActivityAccountBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 

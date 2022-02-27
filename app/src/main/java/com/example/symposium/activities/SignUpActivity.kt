@@ -6,7 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.example.symposium.R
-import com.example.symposium.databinding.SignUpActivityBinding
+import com.example.symposium.databinding.ActivitySignUpBinding
 import com.example.symposium.firebase.FirestoreHandler
 import com.example.symposium.models.User
 import com.example.symposium.utils.BaseActivity
@@ -14,11 +14,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 class SignUpActivity : BaseActivity(), View.OnClickListener {
-    private lateinit var binding: SignUpActivityBinding
+    private lateinit var binding: ActivitySignUpBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = SignUpActivityBinding.inflate(layoutInflater)
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
 
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
