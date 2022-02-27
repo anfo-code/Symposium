@@ -46,6 +46,7 @@ android {
 }
 
 dependencies {
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
     apply plugin: 'com.google.gms.google-services'
     implementation 'com.google.firebase:firebase-firestore:24.0.1'
     implementation platform('com.google.firebase:firebase-bom:29.1.0')

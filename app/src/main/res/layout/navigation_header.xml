@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/headerBackground"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark"
+    android:clickable="true"
+    >
+
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivNavigationHeaderImage"
+        android:layout_width="@dimen/headerImageSize"
+        android:layout_height="@dimen/headerImageSize"
+        android:background="@drawable/ic_user_place_holder"
+        app:civ_border_color="@android:color/white"
+        app:civ_border_width="@dimen/headerImageCircularBorderWidth"
+        android:layout_marginTop="@dimen/headerImageMarginTop"
+        android:layout_marginStart="@dimen/headerHorizontalMargin"
+        android:layout_marginBottom="@dimen/headerImageMargin"
+        />
+
+
+
+    <TextView
+        android:id="@+id/tvHeaderUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivNavigationHeaderImage"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="@dimen/headerHorizontalMargin"
+        android:text="User Name"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:paddingBottom="@dimen/headerTextViewPaddingBottom"
+        />
+
+
+
+
+</RelativeLayout>

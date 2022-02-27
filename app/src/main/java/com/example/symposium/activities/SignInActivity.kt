@@ -58,6 +58,7 @@ class SignInActivity : BaseActivity(), View.OnClickListener {
                         FirestoreHandler().signInUser(this)
                     } else {
                         showErrorSnackBar("Oops! Something went wrong! Please, try again!")
+                        cancelProgressDialog()
                         Log.e("Error", task.exception!!.message.toString())
                     }
                 }

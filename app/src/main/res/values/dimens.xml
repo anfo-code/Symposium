@@ -9,4 +9,11 @@
     <dimen name="loginMargin">38dp</dimen>
     <dimen name="loginCardViewMarginHorizontal">16dp</dimen>
     <dimen name="loginCardViewMarginVertical">60dp</dimen>
+    <dimen name="headerHeight">200dp</dimen>
+    <dimen name="headerImageSize">90dp</dimen>
+    <dimen name="headerImageMargin">20dp</dimen>
+    <dimen name="headerHorizontalMargin">20dp</dimen>
+    <dimen name="headerImageMarginTop">40dp</dimen>
+    <dimen name="headerImageCircularBorderWidth">4dp</dimen>
+    <dimen name="headerTextViewPaddingBottom">20dp</dimen>
 </resources>
