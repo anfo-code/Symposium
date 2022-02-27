@@ -87,7 +87,6 @@ class MainActivity : BaseActivity(), View.OnClickListener {
     private fun changeNightMode() {
         val appSettingPrefs: SharedPreferences = getSharedPreferences("AppSettingPrefs", 0)
         val isDayModeOn: Boolean = appSettingPrefs.getBoolean("NightMode", false)
-        val sharedPrefsEditor: SharedPreferences.Editor = appSettingPrefs.edit()
 
         if (isDayModeOn) {
             turnOnDarkMode()
@@ -112,23 +111,5 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             return true
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    private fun turnOffDarkMode() {
-        val appSettingPrefs: SharedPreferences = getSharedPreferences("AppSettingPrefs", 0)
-        val sharedPreferencesEditor: SharedPreferences.Editor = appSettingPrefs.edit()
-
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        sharedPreferencesEditor.putBoolean("NightMode", true)
-        sharedPreferencesEditor.apply()
-    }
-
-    private fun turnOnDarkMode() {
-        val appSettingPrefs: SharedPreferences = getSharedPreferences("AppSettingPrefs", 0)
-        val sharedPreferencesEditor: SharedPreferences.Editor = appSettingPrefs.edit()
-
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        sharedPreferencesEditor.putBoolean("NightMode", false)
-        sharedPreferencesEditor.apply()
     }
 }

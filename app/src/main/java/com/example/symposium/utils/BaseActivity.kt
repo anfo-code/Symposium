@@ -45,8 +45,10 @@ open class BaseActivity : AppCompatActivity() {
 
         if (isDayModeOn) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            turnOffDarkMode()
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            turnOnDarkMode()
         }
     }
 
@@ -100,5 +102,22 @@ open class BaseActivity : AppCompatActivity() {
         snackBar.show()
     }
 
+    fun turnOffDarkMode() {
+        val appSettingPrefs: SharedPreferences = getSharedPreferences("AppSettingPrefs", 0)
+        val sharedPreferencesEditor: SharedPreferences.Editor = appSettingPrefs.edit()
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        sharedPreferencesEditor.putBoolean("NightMode", true)
+        sharedPreferencesEditor.apply()
+    }
+
+    fun turnOnDarkMode() {
+        val appSettingPrefs: SharedPreferences = getSharedPreferences("AppSettingPrefs", 0)
+        val sharedPreferencesEditor: SharedPreferences.Editor = appSettingPrefs.edit()
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        sharedPreferencesEditor.putBoolean("NightMode", false)
+        sharedPreferencesEditor.apply()
+    }
 
 }

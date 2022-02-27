@@ -17,11 +17,8 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        cancelNightMode()
-
         setNightMode()
 
-        val splashScreen = installSplashScreen()
 
         if (getCurrentUserID().isNotEmpty()){
             startActivity(Intent(this, MainActivity::class.java))
@@ -47,9 +44,5 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
                 startActivity(Intent(this, SignUpActivity::class.java))
             }
         }
-    }
-
-    private fun cancelNightMode() {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 }
