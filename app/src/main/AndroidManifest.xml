@@ -36,11 +36,13 @@
             android:name=".activities.SignInActivity"
             android:exported="false"
             android:screenOrientation="portrait"
+            android:label=""
             android:theme="@style/NoActionBarTheme" />
         <activity
             android:name=".activities.SignUpActivity"
             android:exported="false"
             android:screenOrientation="portrait"
+            android:label=""
             android:theme="@style/NoActionBarTheme"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
