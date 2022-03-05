@@ -56,7 +56,7 @@ class SignInActivity : BaseActivity(), View.OnClickListener {
                     if (task.isSuccessful) {
                         FirestoreHandler().signInUser(this)
                     } else {
-                        showErrorSnackBar("Oops! Something went wrong! Please, try again!")
+                        showErrorSnackBar("Authentication Failed")
                         cancelProgressDialog()
                         Log.e("Error", task.exception!!.message.toString())
                     }
@@ -64,7 +64,7 @@ class SignInActivity : BaseActivity(), View.OnClickListener {
         }
     }
 
-    fun signInSuccess (user: User) {
+    fun signInSuccess () {
         cancelProgressDialog()
         startActivity(Intent(this, MainActivity::class.java))
         finish()

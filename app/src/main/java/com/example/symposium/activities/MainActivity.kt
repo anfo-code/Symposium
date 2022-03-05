@@ -41,8 +41,6 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         }
     }
 
-    //TODO Set log out functionality
-    //TODO DOING RN Set night mode functionality
     //TODO Set Users data and avatar show functionality
     //TODO Set change name functionality
 

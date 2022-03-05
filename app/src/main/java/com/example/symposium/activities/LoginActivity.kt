@@ -12,12 +12,12 @@ import com.example.symposium.utils.BaseActivity
 
 
 class LoginActivity : BaseActivity(), View.OnClickListener {
-       private lateinit var binding : ActivityLoginBinding
+    private lateinit var binding : ActivityLoginBinding
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        setNightMode()
+        val splashScreen = installSplashScreen()
 
 
         if (getCurrentUserID().isNotEmpty()){
@@ -28,6 +28,8 @@ class LoginActivity : BaseActivity(), View.OnClickListener {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        setNightMode()
 
 
         binding.buttonSignUp.setOnClickListener(this)

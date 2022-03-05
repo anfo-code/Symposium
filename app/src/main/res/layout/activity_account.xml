@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.AccountActivity">
+    tools:context=".activities.AccountActivity"
+    android:background="@color/backgroundMainColor"
+    >
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarAccount"
@@ -13,18 +15,18 @@
         android:background="@color/toolbarBackgroundColor"
         android:theme="@style/CustomToolBarStyle"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/nexa"
             android:text="@string/account"
             android:textColor="@color/toolbarTextAndIconColor"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            android:fontFamily="@font/nexa" />
+            android:textSize="20sp" />
 
     </androidx.appcompat.widget.Toolbar>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

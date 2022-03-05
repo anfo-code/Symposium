@@ -50,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/loginCardViewMarginHorizontal"
         android:layout_marginTop="@dimen/loginCardViewMarginVertical"
-        android:background="@color/backgroundAlternativeColor"
+        android:backgroundTint="@color/cardViewBackground"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp"
         app:layout_constraintStart_toStartOf="parent"

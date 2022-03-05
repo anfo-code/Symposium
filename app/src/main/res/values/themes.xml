@@ -17,6 +17,12 @@
     <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="drawerArrowStyle">@style/ButtonStyleToggle</item>
         <item name="colorPrimaryDark">@color/topBarColor</item>
+        <item name="android:itemBackground">@color/optionMenuBackgroundColor</item>
+        <item name="android:itemTextAppearance">@style/customTextAppearance</item>
+    </style>
+
+    <style name="customTextAppearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/textMainColor</item>
     </style>
 
     <style name="ButtonStyleToggle" parent="Widget.AppCompat.DrawerArrowToggle" >
@@ -26,7 +32,7 @@
 
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/backgroundMainColor</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/logo</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_logo</item>
         <item name="postSplashScreenTheme">@style/NoActionBarTheme</item>
     </style>
 

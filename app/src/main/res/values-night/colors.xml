@@ -9,17 +9,18 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="navigationBackgroundColor">#000000</color>
-    <color name="navigationIconUnselectedColor">#ffffff</color>
-    <color name="navigationIconSelectedColor">#D1D4D6</color>
+
     <color name="backgroundAlternativeColor">#3a3a3a</color>
     <color name="backgroundMainColor">#111111</color>
+    <color name="cardViewBackground">#1e1e1e</color>
+    <color name="hintTextColor">#E3E7E7</color>
     <color name="textMainColor">#ffffff</color>
     <color name="textAlternativeColor">#a7a8a8</color>
     <color name="textAccentColor">#5cb4d3</color>
     <color name="iconColor">#C1C1C1</color>
     <color name="splashScreenTextColor">#E5F1FD</color>
-    <color name="buttonBackgroundColor">#35b7ff</color>
-    <color name="buttonTextColor">#ffffff</color>
+    <color name="buttonBackgroundColor">#ffffff</color>
+    <color name="buttonTextColor">#000000</color>
     <color name="toolbarBackgroundColor">#1b1b1b</color>
     <color name="toolbarTextAndIconColor">#ffffff</color>
     <color name="snackBarErrorColor">#B7485A</color>
@@ -28,5 +29,10 @@
     <color name="topBarColor">#090A0A</color>
     <color name="navigationViewMenuItemText">#ffffff</color>
     <color name="navigationViewMenuItemIcon">#ffffff</color>
+    <color name="navigationIconUnselectedColor">#ffffff</color>
+    <color name="navigationIconSelectedColor">#D1D4D6</color>
+    <color name="optionMenuTextColor">#ffffff</color>
+    <color name="optionMenuIconColor">#C1C1C1</color>
+    <color name="optionMenuBackgroundColor">#1b1b1b</color>
 
 </resources>

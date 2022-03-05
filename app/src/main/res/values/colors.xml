@@ -8,11 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="navigationBackgroundColor">#252D3A</color>
-    <color name="navigationIconUnselectedColor">#818996</color>
-    <color name="navigationIconSelectedColor">#E5F1FD</color>
+
     <color name="backgroundAlternativeColor">#E7EBEE</color>
     <color name="backgroundMainColor">#FFFFFFFF</color>
+    <color name="cardViewBackground">#FFFFFFFF</color>
+    <color name="hintTextColor">#BCBCBE</color>
     <color name="textMainColor">#3B3F42</color>
     <color name="textAlternativeColor">#BCBCBE</color>
     <color name="textAccentColor">#5cb4d3</color>
@@ -28,6 +28,12 @@
     <color name="topBarColor">#15171E</color>
     <color name="navigationViewMenuItemText">#000000</color>
     <color name="navigationViewMenuItemIcon">#818996</color>
+    <color name="navigationBackgroundColor">#252D3A</color>
+    <color name="navigationIconUnselectedColor">#818996</color>
+    <color name="navigationIconSelectedColor">#E5F1FD</color>
+    <color name="optionMenuTextColor">#000000</color>
+    <color name="optionMenuIconColor">#5C5C5C</color>
+    <color name="optionMenuBackgroundColor">#ffffff</color>
 
 
 </resources>

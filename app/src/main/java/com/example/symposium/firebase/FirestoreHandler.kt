@@ -29,7 +29,7 @@ class FirestoreHandler() {
             .addOnSuccessListener { document ->
                 val loggedInUser = document.toObject(User::class.java)!!
 
-                activity.signInSuccess(loggedInUser)
+                activity.signInSuccess()
             }
             .addOnFailureListener{
                 Log.e("Sign In User", "Error writing document")
