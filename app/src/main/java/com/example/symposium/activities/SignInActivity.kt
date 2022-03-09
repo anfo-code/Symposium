@@ -41,6 +41,7 @@ open class SignInActivity : BaseActivity(), View.OnClickListener {
         binding.constraintLayoutSignIn.setOnClickListener(this)
         binding.ivGoogleSignIn.setOnClickListener(this)
         binding.ivFacebookSignIn.setOnClickListener(this)
+        binding.tvForgotPassword.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -58,6 +59,9 @@ open class SignInActivity : BaseActivity(), View.OnClickListener {
             R.id.ivFacebookSignIn -> {
                 facebookLogIn()
                 finish()
+            }
+            R.id.tvForgotPassword -> {
+                sendResetPasswordEmail()
             }
         }
     }
@@ -149,6 +153,10 @@ open class SignInActivity : BaseActivity(), View.OnClickListener {
             }
             else -> true
         }
+    }
+
+    private fun sendResetPasswordEmail() {
+        startActivity(Intent(this, PasswordRestoreActivity::class.java))
     }
 
     private fun setToolbar() {

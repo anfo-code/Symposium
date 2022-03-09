@@ -43,7 +43,6 @@ class MainActivity : BaseActivity(), View.OnClickListener {
 
     //TODO Set Users data and avatar show functionality
     //TODO Set change name functionality
-    //TODO Set login via google and via facebook
     //TODO Set "forgot your password" functionality
 
     override fun onClick(v: View?) {

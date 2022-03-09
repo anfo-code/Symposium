@@ -7,6 +7,7 @@ import android.view.MenuItem
 import com.example.symposium.R
 import com.example.symposium.databinding.ActivityAccountBinding
 import com.example.symposium.utils.BaseActivity
+import com.facebook.login.LoginManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
@@ -44,11 +45,15 @@ class AccountActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId){
             R.id.optionsMenuLogOut -> {
+                //Firebase Log Out
                 FirebaseAuth.getInstance().signOut()
+                //Google Log Out
                 GoogleSignIn.getClient(
                     this,
                     GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build()
                 ).signOut()
+                //Facebook Log Out
+                LoginManager.getInstance().logOut()
                 finish()
                 startActivity(Intent(this, LoginActivity::class.java))
                 true
