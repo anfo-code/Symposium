@@ -34,6 +34,7 @@
     <color name="optionMenuTextColor">#000000</color>
     <color name="optionMenuIconColor">#5C5C5C</color>
     <color name="optionMenuBackgroundColor">#ffffff</color>
-
+    <color name="linkTextColor">#6583E0</color>
+    <color name="loginIconsColor">#000000</color>
 
 </resources>

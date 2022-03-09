@@ -2,14 +2,15 @@ package com.example.symposium.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import com.example.symposium.R
 import com.example.symposium.databinding.ActivityAccountBinding
 import com.example.symposium.utils.BaseActivity
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
+
 
 class AccountActivity : BaseActivity() {
 
@@ -44,6 +45,10 @@ class AccountActivity : BaseActivity() {
         return when (item.itemId){
             R.id.optionsMenuLogOut -> {
                 FirebaseAuth.getInstance().signOut()
+                GoogleSignIn.getClient(
+                    this,
+                    GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build()
+                ).signOut()
                 finish()
                 startActivity(Intent(this, LoginActivity::class.java))
                 true

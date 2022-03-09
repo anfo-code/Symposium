@@ -6,6 +6,8 @@
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/drawable/button_filled_rounded_shape.xml" value="0.2195" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/drawable/button_rounded_shape.xml" value="0.149" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/drawable/ic_account_24.xml" value="0.173" />
+        <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/drawable/ic_facebook.xml" value="0.1935" />
+        <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/drawable/ic_google.xml" value="0.1315" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1315" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/drawable/ic_log_out_24.xml" value="0.2105" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/drawable/ic_login_24.xml" value="0.1" />
@@ -17,10 +19,11 @@
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/account_activity.xml" value="0.5340565085771948" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/activity_account.xml" value="0.5461654894046418" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/activity_base.xml" value="0.5461654894046418" />
+        <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/activity_facebook_authentication.xml" value="0.21927083333333333" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/activity_login.xml" value="0.1062058526740666" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/activity_main.xml" value="0.2796296296296296" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/activity_settings.xml" value="0.5461654894046418" />
-        <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/activity_sign_in.xml" value="0.5340565085771948" />
+        <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/activity_sign_in.xml" value="0.4" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/activity_sign_up.xml" value="0.5340565085771948" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/activity_splash.xml" value="0.264" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/base_activity.xml" value="0.5340565085771948" />

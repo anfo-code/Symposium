@@ -16,4 +16,11 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
     <string name="log_out">Log out</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="web_client_id">220109079049-davvmbb3qdjgator4tkc6dmqicp6r6tl.apps.googleusercontent.com</string>
+    <string name="facebook_app_id">1371131593315017</string>
+    <string name="facebook_login_protocol_scheme">fb1234</string>
+    <string name="facebook_client_token">9dbdf4bf33311c63b62ee742729b188f</string>
+
+
 </resources>

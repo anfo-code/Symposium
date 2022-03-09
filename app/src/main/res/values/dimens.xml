@@ -8,7 +8,7 @@
     <dimen name="loginImageSize">230dp</dimen>
     <dimen name="loginMargin">38dp</dimen>
     <dimen name="loginCardViewMarginHorizontal">16dp</dimen>
-    <dimen name="loginCardViewMarginVertical">60dp</dimen>
+    <dimen name="loginCardViewMarginVertical">75dp</dimen>
     <dimen name="headerHeight">200dp</dimen>
     <dimen name="headerImageSize">90dp</dimen>
     <dimen name="headerImageMargin">20dp</dimen>
@@ -19,4 +19,6 @@
     <dimen name="headerTextViewPaddingBottom">20dp</dimen>
     <dimen name="headerNightModeIconSize">30dp</dimen>
     <dimen name="headerNightModeIconMarginEnd">25dp</dimen>
+    <dimen name="signInIconsSize">60dp</dimen>
+    <dimen name="loginIconsMargin">70dp</dimen>
 </resources>

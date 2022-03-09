@@ -91,6 +91,17 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
+    <TextView
+        android:id="@+id/tvForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/forgot_your_password"
+        android:textColor="@color/linkTextColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
     <Button
         android:id="@+id/buttonSignIn"
         android:layout_width="match_parent"
@@ -100,10 +111,34 @@
         android:foreground="?attr/selectableItemBackground"
         android:paddingHorizontal="2dp"
         android:text="@string/sign_in"
-        android:layout_marginTop="48dp"
-        android:textSize="@dimen/loginButtonTextSize"
         android:textColor="@color/buttonTextColor"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        android:textSize="@dimen/loginButtonTextSize"
+        app:layout_constraintTop_toBottomOf="@+id/tvForgotPassword"
+        android:layout_marginTop="@dimen/loginMargin"
         tools:layout_editor_absoluteX="36dp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSignIn">
+
+        <ImageView
+            android:id="@+id/ivGoogleSignIn"
+            android:layout_width="@dimen/signInIconsSize"
+            android:layout_height="@dimen/signInIconsSize"
+            android:layout_marginEnd="@dimen/loginIconsMargin"
+            android:src="@drawable/ic_google" />
+
+            <ImageView
+                android:id="@+id/ivFacebookSignIn"
+                android:layout_width="@dimen/signInIconsSize"
+                android:layout_height="@dimen/signInIconsSize"
+                android:src="@drawable/ic_facebook" />
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

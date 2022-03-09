@@ -5,12 +5,12 @@
     android:viewportHeight="30">
   <path
       android:pathData="M0,15C0,6.7148 6.7148,0 15,0C23.2852,0 30,6.7148 30,15C30,23.2852 23.2852,30 15,30C6.7148,30 0,23.2852 0,15ZM15,28.8008C22.6211,28.8008 28.8008,22.6211 28.8008,15C28.8008,7.3789 22.6211,1.1992 15,1.1992C7.3789,1.1992 1.1992,7.3789 1.1992,15C1.1992,22.6211 7.3789,28.8008 15,28.8008ZM15,28.8008"
-      android:fillColor="#000000"
+      android:fillColor="@color/loginIconsColor"
       android:fillType="nonZero"
-      android:strokeColor="#00000000"/>
+      android:strokeColor="@color/loginIconsColor"/>
   <path
       android:pathData="M14.9688,4.8008C9.332,4.8008 4.7656,9.3672 4.7656,15C4.7656,20.6328 9.332,25.1992 14.9688,25.1992C23.4766,25.1992 25.3945,17.3008 24.5938,13.3008L14.9648,13.3008L14.9648,16.6992L21.543,16.6992C20.7852,19.6328 18.1328,21.8008 14.9648,21.8008C11.2109,21.8008 8.1641,18.7539 8.1641,15C8.1641,11.2461 11.2109,8.1992 14.9648,8.1992C16.6719,8.1992 18.2266,8.832 19.4219,9.875L21.8359,7.4609C20.0234,5.8086 17.6133,4.8008 14.9688,4.8008ZM14.9688,4.8008"
-      android:fillColor="#000000"
+      android:fillColor="@color/loginIconsColor"
       android:fillType="nonZero"
-      android:strokeColor="#00000000"/>
+      android:strokeColor="@color/loginIconsColor"/>
 </vector>

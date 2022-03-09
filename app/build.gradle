@@ -50,12 +50,16 @@ dependencies {
     //circle image library
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     apply plugin: 'com.google.gms.google-services'
+
     //firebase libraries
     implementation 'com.google.firebase:firebase-firestore:24.0.1'
     implementation platform('com.google.firebase:firebase-bom:29.1.0')
-    implementation 'com.google.firebase:firebase-core:20.1.0'
-    implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-auth:21.0.1'
+    implementation 'com.google.android.gms:play-services-auth:20.1.0'
+
+    //facebook library
+    implementation 'com.facebook.android:facebook-login:latest.release'
+
     //splashscreen library
     implementation 'androidx.core:core-splashscreen:1.0.0-beta01'
 

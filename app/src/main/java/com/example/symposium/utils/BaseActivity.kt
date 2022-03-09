@@ -15,6 +15,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import com.example.symposium.R
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 
@@ -92,6 +95,15 @@ open class BaseActivity : AppCompatActivity() {
 
         Handler(Looper.myLooper()!!)
             .postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
+    }
+
+    fun googleSignInBuilder() : GoogleSignInClient {
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.web_client_id))
+            .requestEmail()
+            .build()
+
+        return GoogleSignIn.getClient(this, gso)
     }
 
     fun showErrorSnackBar(message: String) {

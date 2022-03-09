@@ -41,4 +41,9 @@
         <item name="android:colorControlNormal">@color/toolbarTextAndIconColor</item>
     </style>
 
+    <style name="FacebookLoginButton">
+        <item name="android:background">@drawable/ic_facebook</item>
+
+    </style>
+
 </resources>
