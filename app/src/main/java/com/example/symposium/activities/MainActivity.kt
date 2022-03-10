@@ -35,7 +35,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         setNightMode()
         headerBinding.ivNightMode.setOnClickListener(this)
         setNightModeButtonImage()
-        updateUserData()
+        FirestoreHandler().getUserData(this)
 
         binding.navView.setNavigationItemSelectedListener {
             navigationView(it)
@@ -54,11 +54,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         }
     }
 
-    private fun updateUserData() {
-        updateNavigationUserDetails(FirestoreHandler().getUserData())
-    }
-
-    private fun updateNavigationUserDetails(user: User) {
+    fun updateNavigationUserDetails(user: User) {
         Glide
             .with(this)
             .load(user.image)

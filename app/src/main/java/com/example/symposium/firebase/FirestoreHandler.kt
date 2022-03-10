@@ -1,6 +1,8 @@
 package com.example.symposium.firebase
 
+import android.app.Activity
 import android.util.Log
+import com.example.symposium.activities.MainActivity
 import com.example.symposium.activities.SignInActivity
 import com.example.symposium.activities.SignUpActivity
 import com.example.symposium.models.User
@@ -34,18 +36,21 @@ class FirestoreHandler {
             }
     }
 
-    fun getUserData() : User{
-        var loggedInUser = User()
+    fun getUserData(activity: Activity){
         fireStore.collection(Constants.USERS)
-            .document()
+            .document(getCurrentUserId())
             .get()
             .addOnSuccessListener { document ->
-                 loggedInUser = document.toObject(User::class.java)!!
+                 val loggedInUser = document.toObject(User::class.java)!!
+                when (activity) {
+                    is MainActivity -> {
+                        activity.updateNavigationUserDetails(loggedInUser)
+                    }
+                }
             }
             .addOnFailureListener{
                 Log.e("GET USER DATA", "Error getting user data")
             }
-        return loggedInUser
     }
 
 
