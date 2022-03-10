@@ -4,7 +4,6 @@ package com.example.symposium.activities
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.example.symposium.R
 import com.example.symposium.databinding.ActivityLoginBinding

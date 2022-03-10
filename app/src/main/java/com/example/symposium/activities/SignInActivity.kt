@@ -10,14 +10,9 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.example.symposium.R
 import com.example.symposium.databinding.ActivitySignInBinding
 import com.example.symposium.firebase.FirestoreHandler
-import com.example.symposium.models.User
 import com.example.symposium.utils.BaseActivity
-import com.facebook.*
-import com.facebook.login.LoginResult
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 

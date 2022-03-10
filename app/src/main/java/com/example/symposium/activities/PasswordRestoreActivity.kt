@@ -1,13 +1,11 @@
 package com.example.symposium.activities
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import com.example.symposium.R
 import com.example.symposium.databinding.ActivityPasswordRestoreActicityBinding
 import com.example.symposium.utils.BaseActivity
-import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 
 class PasswordRestoreActivity : BaseActivity(), View.OnClickListener {

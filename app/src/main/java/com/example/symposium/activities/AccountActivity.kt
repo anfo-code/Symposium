@@ -37,7 +37,7 @@ class AccountActivity : BaseActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.options_account_menu, menu)
 
-        menu?.getItem(0)?.isVisible = true;
+        menu?.getItem(0)?.isVisible = true
 
         return true
     }

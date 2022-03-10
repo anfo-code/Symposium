@@ -6,13 +6,14 @@ import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.widget.ImageView
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.content.res.AppCompatResources
+import com.bumptech.glide.Glide
 import com.example.symposium.R
 import com.example.symposium.databinding.ActivityMainBinding
 import com.example.symposium.databinding.NavigationHeaderBinding
+import com.example.symposium.firebase.FirestoreHandler
+import com.example.symposium.models.User
 import com.example.symposium.utils.BaseActivity
 
 class MainActivity : BaseActivity(), View.OnClickListener {
@@ -34,6 +35,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         setNightMode()
         headerBinding.ivNightMode.setOnClickListener(this)
         setNightModeButtonImage()
+        updateUserData()
 
         binding.navView.setNavigationItemSelectedListener {
             navigationView(it)
@@ -41,9 +43,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         }
     }
 
-    //TODO Set Users data and avatar show functionality
     //TODO Set change name functionality
-    //TODO Set "forgot your password" functionality
 
     override fun onClick(v: View?) {
         when (v!!.id) {
@@ -52,6 +52,20 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                 setNightModeButtonImage()
             }
         }
+    }
+
+    private fun updateUserData() {
+        updateNavigationUserDetails(FirestoreHandler().getUserData())
+    }
+
+    private fun updateNavigationUserDetails(user: User) {
+        Glide
+            .with(this)
+            .load(user.image)
+            .centerCrop()
+            .placeholder(R.drawable.ic_user_place_holder)
+            .into(headerBinding.ivNavigationHeaderImage)
+        headerBinding.tvHeaderUserName.text = user.name
     }
 
     private fun setToolbar() {

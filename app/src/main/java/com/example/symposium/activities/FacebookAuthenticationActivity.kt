@@ -1,10 +1,8 @@
 package com.example.symposium.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.symposium.R
 import com.example.symposium.firebase.FirestoreHandler
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
@@ -12,9 +10,7 @@ import com.facebook.FacebookCallback
 import com.facebook.FacebookException
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
-import com.facebook.login.widget.LoginButton
 import com.google.firebase.auth.FacebookAuthProvider
-import java.util.*
 
 class FacebookAuthenticationActivity : SignInActivity() {
 
@@ -31,16 +27,16 @@ class FacebookAuthenticationActivity : SignInActivity() {
         LoginManager.getInstance().registerCallback(callbackManager,
             object : FacebookCallback<LoginResult> {
                 override fun onSuccess(result: LoginResult) {
-                    Log.i("TAGAG", "FACEBOOK LOGIN SUCCESS")
+                    Log.i("TAG", "FACEBOOK LOGIN SUCCESS")
                     handleFacebookAccessToken(result.accessToken)
                 }
                 override fun onCancel() {
-                    Log.i("TAGAG", "FACEBOOK LOGIN CANCELLED")
+                    Log.i("TAG", "FACEBOOK LOGIN CANCELLED")
                 }
 
                 override fun onError(error: FacebookException) {
                     showErrorSnackBar("Facebook Authentication Failed")
-                    Log.i("TAGAG", "FACEBOOK LOGIN FAILED")
+                    Log.i("TAG", "FACEBOOK LOGIN FAILED")
                     error.printStackTrace()
                 }
             })
