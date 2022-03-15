@@ -40,7 +40,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/ivNavigationHeaderImage"
         android:paddingBottom="@dimen/headerTextViewPaddingBottom"
-        android:text="User Name"
         android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"

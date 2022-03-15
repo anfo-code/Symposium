@@ -4,8 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import com.bumptech.glide.Glide
 import com.example.symposium.R
 import com.example.symposium.databinding.ActivityAccountBinding
+import com.example.symposium.firebase.FirestoreHandler
+import com.example.symposium.models.User
 import com.example.symposium.utils.BaseActivity
 import com.facebook.login.LoginManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -24,6 +27,7 @@ class AccountActivity : BaseActivity() {
 
 
         setToolbar()
+        FirestoreHandler().getUserData(this)
     }
 
     private fun setToolbar() {
@@ -32,6 +36,16 @@ class AccountActivity : BaseActivity() {
         binding.toolbarAccount.setNavigationOnClickListener {
             onBackPressed()
         }
+    }
+
+    fun updateUserDetails(user: User) {
+        Glide
+            .with(this)
+            .load(user.image)
+            .centerCrop()
+            .placeholder(R.drawable.ic_user_place_holder)
+            .into(binding.ivAvatar)
+        binding.tvAccountUserName.text = user.name
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

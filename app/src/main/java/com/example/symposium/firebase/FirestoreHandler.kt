@@ -2,6 +2,7 @@ package com.example.symposium.firebase
 
 import android.app.Activity
 import android.util.Log
+import com.example.symposium.activities.AccountActivity
 import com.example.symposium.activities.MainActivity
 import com.example.symposium.activities.SignInActivity
 import com.example.symposium.activities.SignUpActivity
@@ -45,6 +46,9 @@ class FirestoreHandler {
                 when (activity) {
                     is MainActivity -> {
                         activity.updateNavigationUserDetails(loggedInUser)
+                    }
+                    is AccountActivity -> {
+                        activity.updateUserDetails(loggedInUser)
                     }
                 }
             }

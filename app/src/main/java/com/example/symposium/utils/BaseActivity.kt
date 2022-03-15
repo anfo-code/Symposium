@@ -19,10 +19,13 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
 
 open class BaseActivity : AppCompatActivity() {
     private var doubleBackToExitPressedOnce = false
-
+    var executor: ExecutorService = Executors.newSingleThreadExecutor()
+    var handler: Handler = Handler(Looper.getMainLooper())
     private lateinit var progressDialog: Dialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -83,17 +86,17 @@ open class BaseActivity : AppCompatActivity() {
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed()
             return
+        } else {
+            this.doubleBackToExitPressedOnce = true
+            Toast.makeText(
+                this,
+                "Please, click back again to exit.",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            Handler(Looper.myLooper()!!)
+                .postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
         }
-
-        this.doubleBackToExitPressedOnce = true
-        Toast.makeText(
-            this,
-            "Please, click back again to exit.",
-            Toast.LENGTH_SHORT
-        ).show()
-
-        Handler(Looper.myLooper()!!)
-            .postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
     }
 
     fun googleSignInBuilder() : GoogleSignInClient {

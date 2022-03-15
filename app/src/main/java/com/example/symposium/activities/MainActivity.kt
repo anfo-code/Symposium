@@ -3,6 +3,8 @@ package com.example.symposium.activities
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
@@ -15,6 +17,9 @@ import com.example.symposium.databinding.NavigationHeaderBinding
 import com.example.symposium.firebase.FirestoreHandler
 import com.example.symposium.models.User
 import com.example.symposium.utils.BaseActivity
+import java.util.concurrent.ExecutorService
+import java.util.concurrent.Executors
+
 
 class MainActivity : BaseActivity(), View.OnClickListener {
 
@@ -41,6 +46,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             navigationView(it)
             true
         }
+
     }
 
     //TODO Set change name functionality
@@ -52,6 +58,10 @@ class MainActivity : BaseActivity(), View.OnClickListener {
                 setNightModeButtonImage()
             }
         }
+    }
+
+    override fun onBackPressed() {
+        doubleBackToExit()
     }
 
     fun updateNavigationUserDetails(user: User) {
