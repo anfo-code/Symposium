@@ -37,7 +37,7 @@ class FirestoreHandler {
     }
 
     //This Function can't return a user, because success listener is not able to return ANYTHING
-    fun getUserData(activity: Activity){
+    fun getUserData(activity: Activity) {
         fireStore.collection(Constants.USERS)
             .document(getCurrentUserId())
             .get()
@@ -55,11 +55,24 @@ class FirestoreHandler {
                     }
                 }
             }
-            .addOnFailureListener{
+            .addOnFailureListener {
                 Log.e("GET USER DATA", "Error getting user data")
             }
     }
 
+    fun changeName(newName: String) {
+        let {
+            val user = FirebaseAuth.getInstance().currentUser
+        }
+    }
+
+    fun changeEmail(newEmail: String) {
+
+    }
+
+    fun changePhone(newPhone: Long) {
+
+    }
 
     private fun getCurrentUserId(): String {
         return FirebaseAuth.getInstance().currentUser!!.uid

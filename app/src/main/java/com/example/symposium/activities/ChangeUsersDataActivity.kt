@@ -54,9 +54,11 @@ class ChangeUsersDataActivity : BaseActivity(), View.OnClickListener {
         when (dataType) {
             Constants.EMAIL -> {
                 binding.tvHint.text = getString(R.string.change_your_email)
-            }Constants.PHONE -> {
+            }
+            Constants.PHONE -> {
                 binding.tvHint.text = getString(R.string.change_your_phone)
-            }Constants.NAME -> {
+            }
+            Constants.NAME -> {
                 binding.tvHint.text = getString(R.string.change_your_name)
             }
         }
@@ -94,8 +96,11 @@ class ChangeUsersDataActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun changeData(): Boolean {
-
-        //TODO implement this functionality
+        when (dataType) {
+            Constants.NAME -> firestoreHandler.changeName(binding.etData.text.toString())
+            Constants.EMAIL -> firestoreHandler.changeEmail(binding.etData.text.toString())
+            Constants.PHONE -> firestoreHandler.changePhone(binding.etData.text.toString().toLong())
+        }
 
         return true
     }
