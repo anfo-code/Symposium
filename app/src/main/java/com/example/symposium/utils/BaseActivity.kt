@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import com.example.symposium.R
+import com.example.symposium.firebase.FirestoreHandler
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -27,6 +28,7 @@ open class BaseActivity : AppCompatActivity() {
     var executor: ExecutorService = Executors.newSingleThreadExecutor()
     var handler: Handler = Handler(Looper.getMainLooper())
     private lateinit var progressDialog: Dialog
+    var firestoreHandler = FirestoreHandler()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -134,4 +136,11 @@ open class BaseActivity : AppCompatActivity() {
         sharedPreferencesEditor.apply()
     }
 
+    fun checkNumber(mobile: String): String {
+        return if (mobile == "0") {
+            ""
+        } else {
+            mobile
+        }
+    }
 }

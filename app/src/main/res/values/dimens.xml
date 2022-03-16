@@ -24,5 +24,7 @@
     <dimen name="accountActivityAvatarSize">120dp</dimen>
     <dimen name="accountActivityMarginHorizontal">26dp</dimen>
     <dimen name="avatarMarginTop">40dp</dimen>
+    <dimen name="accountActivityRowsItemsMarginStart">10dp</dimen>
+    <dimen name="accountActivityRowsItemsMarginEnd">10dp</dimen>
 
 </resources>

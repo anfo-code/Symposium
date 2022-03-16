@@ -14,11 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Symposium">
         <activity
-            android:name=".activities.PasswordRestoreActivity"
+            android:name=".activities.ChangeUsersDataActivity"
             android:exported="false"
             android:label=""
             android:theme="@style/NoActionBarTheme"
             />
+        <activity
+            android:name=".activities.PasswordRestoreActivity"
+            android:exported="false"
+            android:label=""
+            android:theme="@style/NoActionBarTheme" />
         <activity
             android:name=".activities.FacebookAuthenticationActivity"
             android:exported="false"

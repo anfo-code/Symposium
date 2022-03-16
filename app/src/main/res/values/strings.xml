@@ -24,6 +24,10 @@
     <string name="password_restore">Password Restore</string>
     <string name="password_restore_hint">After you enter your email, \n you will get a password restoration request.</string>
     <string name="send_request">Send Request</string>
+    <string name="phone">Phone</string>
+    <string name="change_your_email">Change your Email</string>
+    <string name="change_your_phone">Change your Phone</string>
+    <string name="change_your_name">Change your Name</string>
 
 
 </resources>

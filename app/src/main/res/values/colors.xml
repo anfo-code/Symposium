@@ -14,7 +14,7 @@
     <color name="cardViewBackground">#FFFFFFFF</color>
     <color name="hintTextColor">#BCBCBE</color>
     <color name="textMainColor">#3B3F42</color>
-    <color name="textAlternativeColor">#BCBCBE</color>
+    <color name="textAlternativeColor">#989899</color>
     <color name="textAccentColor">#5cb4d3</color>
     <color name="iconColor">#C1C1C1</color>
     <color name="splashScreenTextColor">#E5F1FD</color>
@@ -37,5 +37,6 @@
     <color name="linkTextColor">#6583E0</color>
     <color name="loginIconsColor">#000000</color>
     <color name="accountActivityAccentBackgroundColor">#181D29</color>
+    <color name="backgroundAccountActivityMain">#ffffff</color>
 
 </resources>

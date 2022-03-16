@@ -36,5 +36,7 @@
     <color name="optionMenuBackgroundColor">#1b1b1b</color>
     <color name="linkTextColor">#6583E0</color>
     <color name="accountActivityAccentBackgroundColor">#121212</color>
+    <color name="backgroundAccountActivityMain">#1b1b1b</color>
+
 
 </resources>

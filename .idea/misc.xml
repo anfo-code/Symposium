@@ -6,6 +6,8 @@
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/drawable/button_filled_rounded_shape.xml" value="0.2195" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/drawable/button_rounded_shape.xml" value="0.149" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/drawable/ic_account_24.xml" value="0.173" />
+        <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/drawable/ic_arrow_edit_24.xml" value="0.1445" />
+        <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/drawable/ic_confirm_24.xml" value="0.1445" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/drawable/ic_edit_24.xml" value="0.2105" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/drawable/ic_facebook.xml" value="0.1935" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/drawable/ic_google.xml" value="0.1315" />
@@ -19,8 +21,9 @@
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/drawable/rounded_shape.xml" value="0.149" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/font/nexa.xml" value="0.2759259259259259" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/account_activity.xml" value="0.5340565085771948" />
-        <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/activity_account.xml" value="0.264" />
+        <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/activity_account.xml" value="0.152" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/activity_base.xml" value="0.5461654894046418" />
+        <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/activity_change_users_data.xml" value="0.2" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/activity_facebook_authentication.xml" value="0.21927083333333333" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/activity_login.xml" value="0.1062058526740666" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/activity_main.xml" value="0.2796296296296296" />
@@ -39,6 +42,7 @@
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/settings_activity.xml" value="0.5340565085771948" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/sign_in_activity.xml" value="0.1" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/layout/sign_up_activity.xml" value="0.20647773279352227" />
+        <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/menu/confirm_button.xml" value="0.21927083333333333" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/menu/nav_drawer_menu.xml" value="0.5777777777777777" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/menu/nav_header.xml" value="0.5777777777777777" />
         <entry key="..\:/AndroidApplications/MyOwnProjects/Symposium/app/src/main/res/menu/navigation_drawer_menu.xml" value="0.9037037037037037" />

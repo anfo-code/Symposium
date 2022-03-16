@@ -3,9 +3,6 @@ package com.example.symposium.activities
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -14,11 +11,9 @@ import com.bumptech.glide.Glide
 import com.example.symposium.R
 import com.example.symposium.databinding.ActivityMainBinding
 import com.example.symposium.databinding.NavigationHeaderBinding
-import com.example.symposium.firebase.FirestoreHandler
 import com.example.symposium.models.User
 import com.example.symposium.utils.BaseActivity
-import java.util.concurrent.ExecutorService
-import java.util.concurrent.Executors
+import timber.log.Timber
 
 
 class MainActivity : BaseActivity(), View.OnClickListener {
@@ -40,7 +35,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         setNightMode()
         headerBinding.ivNightMode.setOnClickListener(this)
         setNightModeButtonImage()
-        FirestoreHandler().getUserData(this)
+        firestoreHandler.getUserData(this)
 
         binding.navView.setNavigationItemSelectedListener {
             navigationView(it)
@@ -48,8 +43,6 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         }
 
     }
-
-    //TODO Set change name functionality
 
     override fun onClick(v: View?) {
         when (v!!.id) {
@@ -86,12 +79,10 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         toggle.syncState()
     }
 
-
-
     private fun setNightModeButtonImage() {
         val appSettingPrefs: SharedPreferences = getSharedPreferences("AppSettingPrefs", 0)
         val isDayModeOn: Boolean = appSettingPrefs.getBoolean("NightMode", false)
-        Log.i("fdf", isDayModeOn.toString())
+        Timber.i(isDayModeOn.toString())
         if (isDayModeOn) {
             headerBinding.ivNightMode.setImageDrawable(
                 AppCompatResources.getDrawable(this, R.drawable.ic_night_mode_on)
