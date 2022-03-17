@@ -9,7 +9,6 @@ import android.content.ContextWrapper
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
-import android.media.Image
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -19,9 +18,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.graphics.decodeBitmap
 import com.bumptech.glide.Glide
-import com.example.symposium.BuildConfig
 import com.example.symposium.R
 import com.example.symposium.databinding.ActivityAccountBinding
 import com.example.symposium.models.User
@@ -30,7 +27,6 @@ import com.example.symposium.utils.Constants
 import com.facebook.login.LoginManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.Releasable
 import com.google.firebase.auth.FirebaseAuth
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
@@ -42,7 +38,6 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
-import java.lang.Exception
 import java.util.*
 
 
@@ -178,7 +173,25 @@ class AccountActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun takePhotoFromCamera() {
+        Dexter.withActivity(this).withPermissions(
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.CAMERA
+        ).withListener(object : MultiplePermissionsListener{
+            override fun onPermissionsChecked(report: MultiplePermissionsReport?) {
+                if (report!!.areAllPermissionsGranted()) {
+                    val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                    cameraResultLauncher.launch(cameraIntent)
+                }
+            }
 
+            override fun onPermissionRationaleShouldBeShown(
+                permissions: MutableList<PermissionRequest>?,
+                token: PermissionToken?
+            ) {
+                showRationalDialogForPermissions()
+            }
+        }).onSameThread().check()
     }
 
     val galleryResultLauncher =
@@ -201,6 +214,21 @@ class AccountActivity : BaseActivity(), View.OnClickListener {
             }
         }
 
+    val cameraResultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data = result.data
+                if (data != null) {
+                    val thumbnail = data.extras!!.get("data") as Bitmap
+
+                    saveImageToInternalStorage = saveImageToInternalStorage(thumbnail)
+
+                    binding.ivAvatar.setImageBitmap(thumbnail)
+                }
+            }
+        }
+
+    @Suppress("Deprecation")
     private fun getImage(contentURI: Uri): Bitmap {
         return when {
             Build.VERSION.SDK_INT < 28 ->
@@ -216,7 +244,7 @@ class AccountActivity : BaseActivity(), View.OnClickListener {
 
     private fun saveImageToInternalStorage(bitmap: Bitmap): Uri {
         val wrapper = ContextWrapper(applicationContext)
-        var file = wrapper.getDir(IMAGE_DIRECTORY, Context.MODE_PRIVATE)
+        var file = wrapper.getDir(Constants.IMAGE_DIRECTORY, Context.MODE_PRIVATE)
         file = File(file, "${UUID.randomUUID()}.jpg")
 
         try {
@@ -261,9 +289,5 @@ class AccountActivity : BaseActivity(), View.OnClickListener {
         finish()
         startActivity(Intent(this, LoginActivity::class.java))
         return true
-    }
-
-    companion object {
-        private const val IMAGE_DIRECTORY = "SymposiumImages"
     }
 }
