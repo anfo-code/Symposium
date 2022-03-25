@@ -1,11 +1,15 @@
 package com.example.symposium.firebase
 
 import android.app.Activity
-import android.util.Log
+import android.content.Context
+import android.content.Intent
+import androidx.core.content.ContextCompat.startActivity
 import com.example.symposium.activities.*
 import com.example.symposium.models.User
 import com.example.symposium.utils.Constants
-import com.facebook.AccessToken
+import com.facebook.login.LoginManager
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
@@ -32,8 +36,22 @@ class FirestoreHandler {
                 activity.signInSuccess()
             }
             .addOnFailureListener {
-                Log.e("Sign In User", "Error writing document")
+                Timber.e(" Sign In User Error writing document " + it.printStackTrace())
             }
+    }
+
+    fun logOut(activity: Activity, context: Context) {
+        //Firebase Log Out
+        FirebaseAuth.getInstance().signOut()
+        //Google Log Out
+        GoogleSignIn.getClient(
+            context,
+            GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).build()
+        ).signOut()
+        //Facebook Log Out
+        LoginManager.getInstance().logOut()
+        activity.finish()
+        startActivity(context, Intent(context, LoginActivity::class.java), null)
     }
 
     //This Function can't return a user, because success listener is not able to return ANYTHING
@@ -48,15 +66,16 @@ class FirestoreHandler {
                         activity.updateNavigationUserDetails(loggedInUser)
                     }
                     is AccountActivity -> {
-                        activity.updateUserDetails(loggedInUser)
+                        activity.uploadUserDetails(loggedInUser)
                     }
                     is ChangeUsersDataActivity -> {
                         activity.setCurrentDataInEditText(loggedInUser)
+
                     }
                 }
             }
             .addOnFailureListener {
-                Log.e("GET USER DATA", "Error getting user data")
+                Timber.e("Error getting user data " + it.printStackTrace())
             }
     }
 

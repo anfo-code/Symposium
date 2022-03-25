@@ -1,12 +1,17 @@
 package com.example.symposium.utils
 
 import android.app.Activity
+import android.app.AlertDialog
 import android.app.Dialog
+import android.content.ActivityNotFoundException
+import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.provider.Settings
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
@@ -20,6 +25,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import timber.log.Timber
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 
@@ -33,6 +39,8 @@ open class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_base)
+
+        Timber.plant()
     }
 
     fun hideKeyboard(activity: Activity) {
@@ -67,6 +75,8 @@ open class BaseActivity : AppCompatActivity() {
         val tvProgressText = progressDialog.findViewById<TextView>(R.id.tvProgressText)
 
         tvProgressText.text = text
+
+        progressDialog.setCancelable(false)
 
         progressDialog.show()
     }
@@ -143,4 +153,27 @@ open class BaseActivity : AppCompatActivity() {
             mobile
         }
     }
+
+    fun initializeUserDataUpload(activity: Activity) {
+        firestoreHandler.getUserData(activity)
+    }
+
+    fun showRationalDialogForPermissions() {
+        AlertDialog.Builder(this).setMessage(
+            "It looks like you have turned off permissions required for this feature. " +
+                    "It can be enabled under Application Settings"
+        )
+            .setPositiveButton("GO TO SETTINGS")
+            { _, _ ->
+                try {
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    val uri = Uri.fromParts("package", packageName, null)
+                    intent.data = uri
+                    startActivity(intent)
+                } catch (e: ActivityNotFoundException) {
+                    e.printStackTrace()
+                }
+            }
+    }
+
 }

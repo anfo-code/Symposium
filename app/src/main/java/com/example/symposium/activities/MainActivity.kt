@@ -35,7 +35,7 @@ class MainActivity : BaseActivity(), View.OnClickListener {
         setNightMode()
         headerBinding.ivNightMode.setOnClickListener(this)
         setNightModeButtonImage()
-        firestoreHandler.getUserData(this)
+        initializeUserDataUpload(this)
 
         binding.navView.setNavigationItemSelectedListener {
             navigationView(it)
