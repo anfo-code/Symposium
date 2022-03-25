@@ -96,11 +96,16 @@ class ChangeUsersDataActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun changeData(): Boolean {
+        val userHashMap = HashMap<String, Any>()
+
         when (dataType) {
-            Constants.NAME -> firestoreHandler.changeName(binding.etData.text.toString())
-            Constants.EMAIL -> firestoreHandler.changeEmail(binding.etData.text.toString())
-            Constants.PHONE -> firestoreHandler.changePhone(binding.etData.text.toString().toLong())
+            Constants.PHONE -> userHashMap[dataType] = binding.etData.text.toString().toLong()
+            else -> userHashMap[dataType] = binding.etData.text.toString()
         }
+
+        firestoreHandler.changeData(this, userHashMap)
+
+        finish()
 
         return true
     }

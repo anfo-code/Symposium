@@ -35,8 +35,8 @@
     <color name="optionMenuIconColor">#C1C1C1</color>
     <color name="optionMenuBackgroundColor">#1b1b1b</color>
     <color name="linkTextColor">#6583E0</color>
+    <color name="loginIconsColor">#ffffff</color>
     <color name="accountActivityAccentBackgroundColor">#121212</color>
     <color name="backgroundAccountActivityMain">#1b1b1b</color>
-
 
 </resources>

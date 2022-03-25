@@ -21,7 +21,7 @@ import timber.log.Timber
 class AccountActivity : BaseActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityAccountBinding
-    private lateinit var mUser: User
+    private lateinit var userDetails: User
     private val photoSaver = PhotoSaver(this, this, this)
 
 
@@ -86,7 +86,7 @@ class AccountActivity : BaseActivity(), View.OnClickListener {
 
 
     fun uploadUserDetails(user: User) {
-        mUser = user
+        userDetails = user
 
         Glide
             .with(this)
@@ -95,26 +95,26 @@ class AccountActivity : BaseActivity(), View.OnClickListener {
             .placeholder(R.drawable.ic_user_place_holder)
             .into(binding.ivAvatar)
         binding.tvAccountUserName.text = user.name
-        binding.tvEmail.text = user.name
+        binding.tvEmail.text = user.email
         binding.tvPhone.text = checkNumber(user.mobile.toString())
     }
 
     private fun updateUserDetails() {
         Glide
             .with(this)
-            .load(mUser.image)
+            .load(userDetails.image)
             .centerCrop()
             .placeholder(R.drawable.ic_user_place_holder)
             .into(binding.ivAvatar)
-        binding.tvAccountUserName.text = mUser.name
-        binding.tvEmail.text = mUser.name
-        binding.tvPhone.text = checkNumber(mUser.mobile.toString())
+        binding.tvAccountUserName.text = userDetails.name
+        binding.tvEmail.text = userDetails.email
+        binding.tvPhone.text = checkNumber(userDetails.mobile.toString())
     }
 
     private val userDataChangeResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
-                firestoreHandler.getUserData(this)
+                updateUserDetails()
             }
         }
 

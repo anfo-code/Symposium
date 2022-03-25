@@ -6,19 +6,19 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.graphics.ImageDecoder
 import android.net.Uri
-import android.os.Build
 import android.provider.MediaStore
 import android.webkit.MimeTypeMap
 import androidx.activity.ComponentActivity
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import com.example.symposium.utils.BaseActivity
+import com.example.symposium.utils.Constants
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 
 import timber.log.Timber
+import java.io.ByteArrayOutputStream
 import java.io.IOException
 
 class PhotoSaver(
@@ -35,20 +35,6 @@ class PhotoSaver(
     private fun getFileExtension(uri: Uri?): String? {
         return MimeTypeMap.getSingleton()
             .getExtensionFromMimeType(context.contentResolver.getType(uri!!))
-    }
-
-    @Suppress("Deprecation")
-    private fun getImage(contentURI: Uri): Bitmap {
-        return when {
-            Build.VERSION.SDK_INT < 28 ->
-                MediaStore.Images.Media.getBitmap(context.contentResolver, contentURI)
-            else -> ImageDecoder.decodeBitmap(
-                ImageDecoder.createSource(
-                    context.contentResolver,
-                    contentURI
-                )
-            )
-        }
     }
 
     private fun uploadUserImage() {
@@ -70,6 +56,8 @@ class PhotoSaver(
 
                             profileImageUrl = uri.toString()
 
+                            updateImageDataInStorage(profileImageUrl)
+
                             fireStoreHandler.getUserData(activity)
                         }
                         .addOnFailureListener { exception ->
@@ -88,7 +76,7 @@ class PhotoSaver(
                 Intent.ACTION_PICK,
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI
             )
-            imageTakeResultLauncher.launch(galleryIntent)
+            galleryResultLauncher.launch(galleryIntent)
         } else {
             baseActivity.showRationalDialogForPermissions()
         }
@@ -98,17 +86,14 @@ class PhotoSaver(
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA)
             == PackageManager.PERMISSION_GRANTED
         ) {
-            val galleryIntent = Intent(
-                Intent.ACTION_PICK,
-                MediaStore.Images.Media.EXTERNAL_CONTENT_URI
-            )
-            imageTakeResultLauncher.launch(galleryIntent)
+            val galleryIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            cameraResultLauncher.launch(galleryIntent)
         } else {
             baseActivity.showRationalDialogForPermissions()
         }
     }
 
-    private val imageTakeResultLauncher =
+    private val galleryResultLauncher =
         componentActivity.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val data = result.data
@@ -123,4 +108,34 @@ class PhotoSaver(
                 }
             }
         }
+
+    private val cameraResultLauncher =
+        componentActivity.registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val thumbnail = result.data!!.extras!!.get("data") as Bitmap
+                selectedImageFileUri = convertBitmapToUri(thumbnail)
+                try {
+                    uploadUserImage()
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                    baseActivity.showErrorSnackBar("Failed to upload photo from Gallery")
+                }
+            }
+        }
+
+    private fun convertBitmapToUri(thumbnail: Bitmap): Uri {
+        val byteArray = ByteArrayOutputStream()
+        thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, byteArray)
+        val path = MediaStore.Images.Media.insertImage(context.contentResolver, thumbnail, "USER_IMAGE" + System.currentTimeMillis(), null)
+
+        return Uri.parse(path)
+    }
+
+    private fun updateImageDataInStorage(imageUrl: String) {
+        val userHashMap = HashMap<String, Any>()
+
+        userHashMap[Constants.IMAGE] = imageUrl
+
+        fireStoreHandler.changeData(context, userHashMap)
+    }
 }

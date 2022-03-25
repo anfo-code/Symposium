@@ -3,6 +3,7 @@ package com.example.symposium.firebase
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.widget.Toast
 import androidx.core.content.ContextCompat.startActivity
 import com.example.symposium.activities.*
 import com.example.symposium.models.User
@@ -18,6 +19,7 @@ import timber.log.Timber
 class FirestoreHandler {
 
     private val fireStore = FirebaseFirestore.getInstance()
+    private lateinit var userDetails : User
 
     fun registerUser(activity: SignUpActivity, userInfo: User) {
         fireStore.collection(Constants.USERS)
@@ -63,7 +65,7 @@ class FirestoreHandler {
                 val loggedInUser = document.toObject(User::class.java)!!
                 when (activity) {
                     is MainActivity -> {
-                        activity.updateNavigationUserDetails(loggedInUser)
+                        activity.uploadNavigationUserDetails(loggedInUser)
                     }
                     is AccountActivity -> {
                         activity.uploadUserDetails(loggedInUser)
@@ -79,18 +81,18 @@ class FirestoreHandler {
             }
     }
 
-    fun changeName(newName: String) {
-        let {
-            val user = FirebaseAuth.getInstance().currentUser
-        }
-    }
-
-    fun changeEmail(newEmail: String) {
-
-    }
-
-    fun changePhone(newPhone: Long) {
-
+    fun changeData(context: Context, userHaspMap : HashMap<String, Any>) {
+        fireStore.collection(Constants.USERS)
+            .document(getCurrentUserId())
+            .update(userHaspMap)
+            .addOnSuccessListener {
+                Timber.i("Profile updated successfully")
+                Toast.makeText(context, "Profile updated successfully",
+                Toast.LENGTH_SHORT).show()
+            }
+            .addOnFailureListener {
+                Timber.e(it.printStackTrace().toString())
+            }
     }
 
     private fun getCurrentUserId(): String {
