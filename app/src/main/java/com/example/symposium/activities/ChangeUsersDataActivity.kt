@@ -1,5 +1,6 @@
 package com.example.symposium.activities
 
+import android.app.Activity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -104,9 +105,6 @@ class ChangeUsersDataActivity : BaseActivity(), View.OnClickListener {
         }
 
         firestoreHandler.changeData(this, userHashMap)
-
-        finish()
-
         return true
     }
 }

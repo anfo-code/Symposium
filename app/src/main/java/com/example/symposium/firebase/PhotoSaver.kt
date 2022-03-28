@@ -56,7 +56,7 @@ class PhotoSaver(
 
                             profileImageUrl = uri.toString()
 
-                            updateImageDataInStorage(profileImageUrl)
+                            updateImageDataInStorage(profileImageUrl, activity)
 
                             fireStoreHandler.getUserData(activity)
                         }
@@ -131,11 +131,12 @@ class PhotoSaver(
         return Uri.parse(path)
     }
 
-    private fun updateImageDataInStorage(imageUrl: String) {
+    private fun updateImageDataInStorage(imageUrl: String, activity: Activity) {
         val userHashMap = HashMap<String, Any>()
 
         userHashMap[Constants.IMAGE] = imageUrl
 
-        fireStoreHandler.changeData(context, userHashMap)
+        fireStoreHandler.changeData(activity, userHashMap)
+
     }
 }

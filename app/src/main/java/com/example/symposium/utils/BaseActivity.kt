@@ -175,5 +175,4 @@ open class BaseActivity : AppCompatActivity() {
                 }
             }
     }
-
 }

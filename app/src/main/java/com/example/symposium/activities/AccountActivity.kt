@@ -114,16 +114,19 @@ class AccountActivity : BaseActivity(), View.OnClickListener {
     private val userDataChangeResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
-                updateUserDetails()
+                firestoreHandler.getUserData(this)
             }
         }
 
+    override fun onBackPressed() {
+        firestoreHandler.onUpdateSuccessListener(this)
+    }
 
     private fun setToolbar() {
         setSupportActionBar(binding.toolbarAccount)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.toolbarAccount.setNavigationOnClickListener {
-            onBackPressed()
+            firestoreHandler.onUpdateSuccessListener(this)
         }
     }
 

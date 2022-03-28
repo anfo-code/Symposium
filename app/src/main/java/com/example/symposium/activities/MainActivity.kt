@@ -25,6 +25,9 @@ class MainActivity : BaseActivity(), View.OnClickListener {
     private lateinit var headerBinding : NavigationHeaderBinding
     private lateinit var userDetails: User
 
+    //TODO last video 236
+    //TODO add update View updates whenever the user's data changes
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -61,16 +64,6 @@ class MainActivity : BaseActivity(), View.OnClickListener {
     }
 
     fun uploadNavigationUserDetails(user: User) {
-        Glide
-            .with(this)
-            .load(user.image)
-            .centerCrop()
-            .placeholder(R.drawable.ic_user_place_holder)
-            .into(headerBinding.ivNavigationHeaderImage)
-        headerBinding.tvHeaderUserName.text = user.name
-    }
-
-    fun updateUserDetailsNavigationUserDetails(user: User) {
         Glide
             .with(this)
             .load(user.image)
