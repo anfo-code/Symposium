@@ -38,5 +38,8 @@
     <color name="loginIconsColor">#ffffff</color>
     <color name="accountActivityAccentBackgroundColor">#121212</color>
     <color name="backgroundAccountActivityMain">#1b1b1b</color>
+    <color name="floatingButtonColor">#5937A3</color>
+    <color name="emptyImageIconBackground">#ffffff</color>
+    <color name="editTextUnderlineColor">#ffffff</color>
 
 </resources>

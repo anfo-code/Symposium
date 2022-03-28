@@ -3,7 +3,7 @@
     <dimen name="splashScreenTextSize">62sp</dimen>
     <dimen name="loginLabelSize">48sp</dimen>
     <dimen name="loginMainTextSize">34sp</dimen>
-    <dimen name="loginButtonTextSize">22sp</dimen>
+    <dimen name="buttonTextSize">22sp</dimen>
     <dimen name="loginAlternativeTextSize">24sp</dimen>
     <dimen name="loginImageSize">230dp</dimen>
     <dimen name="loginMargin">38dp</dimen>
@@ -22,9 +22,11 @@
     <dimen name="signInIconsSize">60dp</dimen>
     <dimen name="loginIconsMargin">70dp</dimen>
     <dimen name="accountActivityAvatarSize">120dp</dimen>
+    <dimen name="addBoardActivityCircularImageSize">120dp</dimen>
     <dimen name="accountActivityMarginHorizontal">26dp</dimen>
     <dimen name="avatarMarginTop">40dp</dimen>
     <dimen name="accountActivityRowsItemsMarginStart">10dp</dimen>
     <dimen name="accountActivityRowsItemsMarginEnd">10dp</dimen>
+    <dimen name="addButtonPadding">20dp</dimen>
 
 </resources>

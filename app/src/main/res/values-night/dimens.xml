@@ -21,5 +21,6 @@
     <dimen name="headerNightModeIconMarginEnd">25dp</dimen>
     <dimen name="signInIconsSize">60dp</dimen>
     <dimen name="loginIconsMargin">70dp</dimen>
+    <dimen name="addButtonPadding">20dp</dimen>
 
 </resources>

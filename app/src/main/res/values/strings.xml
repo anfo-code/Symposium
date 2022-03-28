@@ -28,6 +28,9 @@
     <string name="change_your_email">Change your Email</string>
     <string name="change_your_phone">Change your Phone</string>
     <string name="change_your_name">Change your Name</string>
+    <string name="add_board">Add Board</string>
+    <string name="board_name">Board Name</string>
+    <string name="create">Create</string>
 
 
 </resources>

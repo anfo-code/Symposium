@@ -47,6 +47,7 @@
         android:textColor="@color/textMainColor"
         android:textColorHint="@color/textAlternativeColor"
         android:layout_marginTop="60dp"
+        android:backgroundTint="@color/editTextUnderlineColor"
         android:layout_marginHorizontal="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbarChangeUsersData" />

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/clAddBoardMain"
+    android:background="@color/backgroundMainColor"
+    tools:context=".activities.AddBoardActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarAddBoard"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/toolbarBackgroundColor"
+        android:theme="@style/CustomToolBarStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_board"
+            android:textColor="@color/toolbarTextAndIconColor"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:fontFamily="@font/nexa" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleImageView"
+        android:layout_width="@dimen/addBoardActivityCircularImageSize"
+        android:layout_height="@dimen/addBoardActivityCircularImageSize"
+        android:layout_marginTop="110dp"
+        android:src="@drawable/ic_empty_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarAddBoard" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="80dp"
+        android:backgroundTint="@color/editTextUnderlineColor"
+        android:hint="@string/board_name"
+        android:textColor="@color/textMainColor"
+        android:textColorHint="@color/textAlternativeColor"
+        app:layout_constraintTop_toBottomOf="@+id/circleImageView"
+        tools:layout_editor_absoluteX="20dp" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="36dp"
+        android:background="@drawable/button_filled_rounded_shape"
+        android:foreground="?attr/selectableItemBackground"
+        android:paddingHorizontal="2dp"
+        android:layout_marginTop="130dp"
+        android:textColor="@color/buttonTextColor"
+        android:textSize="@dimen/buttonTextSize"
+        android:text="@string/create"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+</androidx.constraintlayout.widget.ConstraintLayout>

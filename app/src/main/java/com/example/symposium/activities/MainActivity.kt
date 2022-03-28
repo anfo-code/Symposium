@@ -23,10 +23,6 @@ class MainActivity : BaseActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var headerBinding : NavigationHeaderBinding
-    private lateinit var userDetails: User
-
-    //TODO last video 236
-    //TODO add update View updates whenever the user's data changes
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -39,7 +35,6 @@ class MainActivity : BaseActivity(), View.OnClickListener {
 
         setToolbar()
         setNightMode()
-        headerBinding.ivNightMode.setOnClickListener(this)
         setNightModeButtonImage()
         initializeUserDataUpload(this)
 
@@ -48,6 +43,8 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             true
         }
 
+        binding.floatingButtonAddBoard.setOnClickListener(this)
+        headerBinding.ivNightMode.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -55,6 +52,9 @@ class MainActivity : BaseActivity(), View.OnClickListener {
             R.id.ivNightMode -> {
                 changeNightMode()
                 setNightModeButtonImage()
+            }
+            R.id.floatingButtonAddBoard -> {
+                startActivity(Intent(this, AddBoardActivity::class.java))
             }
         }
     }
