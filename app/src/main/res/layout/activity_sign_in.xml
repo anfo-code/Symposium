@@ -117,28 +117,4 @@
         android:layout_marginTop="@dimen/loginMargin"
         tools:layout_editor_absoluteX="36dp" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSignIn">
-
-        <ImageView
-            android:id="@+id/ivGoogleSignIn"
-            android:layout_width="@dimen/signInIconsSize"
-            android:layout_height="@dimen/signInIconsSize"
-            android:layout_marginEnd="@dimen/loginIconsMargin"
-            android:src="@drawable/ic_google" />
-
-            <ImageView
-                android:id="@+id/ivFacebookSignIn"
-                android:layout_width="@dimen/signInIconsSize"
-                android:layout_height="@dimen/signInIconsSize"
-                android:src="@drawable/ic_facebook" />
-
-    </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

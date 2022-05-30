@@ -31,8 +31,6 @@ import java.util.concurrent.Executors
 
 open class BaseActivity : AppCompatActivity() {
     private var doubleBackToExitPressedOnce = false
-    var executor: ExecutorService = Executors.newSingleThreadExecutor()
-    var handler: Handler = Handler(Looper.getMainLooper())
     private lateinit var progressDialog: Dialog
     var firestoreHandler = FirestoreHandler()
 
@@ -109,15 +107,6 @@ open class BaseActivity : AppCompatActivity() {
             Handler(Looper.myLooper()!!)
                 .postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
         }
-    }
-
-    fun googleSignInBuilder() : GoogleSignInClient {
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.web_client_id))
-            .requestEmail()
-            .build()
-
-        return GoogleSignIn.getClient(this, gso)
     }
 
     fun showErrorSnackBar(message: String) {
