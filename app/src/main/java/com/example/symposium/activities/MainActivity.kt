@@ -19,7 +19,7 @@ import timber.log.Timber
 
 
 class MainActivity : BaseActivity(), View.OnClickListener {
-
+    
     private lateinit var binding: ActivityMainBinding
     private lateinit var toggle: ActionBarDrawerToggle
     private lateinit var headerBinding : NavigationHeaderBinding

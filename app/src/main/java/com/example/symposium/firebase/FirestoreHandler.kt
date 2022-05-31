@@ -24,6 +24,9 @@ class FirestoreHandler {
             .addOnSuccessListener {
                 activity.userRegisteredSuccess()
             }
+            .addOnFailureListener {
+                activity.userRegisteredFailure(it.localizedMessage!!)
+            }
     }
 
     fun signInUser(activity: SignInActivity) {
@@ -34,7 +37,7 @@ class FirestoreHandler {
                 activity.signInSuccess()
             }
             .addOnFailureListener {
-                Timber.e(" Sign In User Error writing document " + it.printStackTrace())
+                it.localizedMessage?.let { it1 -> activity.signInFailure(it1) }
             }
     }
 

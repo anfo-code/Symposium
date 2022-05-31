@@ -68,7 +68,7 @@ class PhotoSaver(
         }
     }
 
-    fun checkGalleryPermissions() {
+    fun checkGalleryPermissions(activity: BaseActivity) {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_EXTERNAL_STORAGE)
             == PackageManager.PERMISSION_GRANTED
         ) {
@@ -78,18 +78,18 @@ class PhotoSaver(
             )
             galleryResultLauncher.launch(galleryIntent)
         } else {
-            baseActivity.showRationalDialogForPermissions()
+            activity.showToastForPermissions()
         }
     }
 
-    fun checkCameraPermissions() {
+    fun checkCameraPermissions(activity: BaseActivity) {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA)
             == PackageManager.PERMISSION_GRANTED
         ) {
             val galleryIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
             cameraResultLauncher.launch(galleryIntent)
         } else {
-            baseActivity.showRationalDialogForPermissions()
+            activity.showToastForPermissions()
         }
     }
 
@@ -126,7 +126,12 @@ class PhotoSaver(
     private fun convertBitmapToUri(thumbnail: Bitmap): Uri {
         val byteArray = ByteArrayOutputStream()
         thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, byteArray)
-        val path = MediaStore.Images.Media.insertImage(context.contentResolver, thumbnail, "USER_IMAGE" + System.currentTimeMillis(), null)
+        val path = MediaStore.Images.Media.insertImage(
+            context.contentResolver,
+            thumbnail,
+            "USER_IMAGE" + System.currentTimeMillis(),
+            null
+        )
 
         return Uri.parse(path)
     }

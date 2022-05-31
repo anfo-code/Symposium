@@ -147,8 +147,15 @@ open class BaseActivity : AppCompatActivity() {
         firestoreHandler.getUserData(activity)
     }
 
+    fun showToastForPermissions() {
+        Toast.makeText(applicationContext,
+            "It looks like you have turned off permissions required for this feature. " +
+                "It can be enabled under Application Settings",
+                Toast.LENGTH_LONG).show()
+    }
+
     fun showRationalDialogForPermissions() {
-        AlertDialog.Builder(this).setMessage(
+        AlertDialog.Builder(applicationContext).setMessage(
             "It looks like you have turned off permissions required for this feature. " +
                     "It can be enabled under Application Settings"
         )

@@ -39,6 +39,13 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
         finish()
     }
 
+    fun userRegisteredFailure(message: String) {
+        cancelProgressDialog()
+        showErrorSnackBar(message)
+        FirebaseAuth.getInstance().signOut()
+        finish()
+    }
+
     private fun setToolbar() {
         setSupportActionBar(binding.toolbarSignUp)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -67,8 +74,7 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
         val repeatedPassword = binding.etPasswordRepeat.text.toString()
 
         if (validateForm(name, email, password, repeatedPassword)) {
-            val progressDialogText = resources.getString(R.string.please_wait)
-            showProgressDialog(progressDialogText)
+            showProgressDialog(resources.getString(R.string.please_wait))
             FirebaseAuth.getInstance()
                 .createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
@@ -78,8 +84,8 @@ class SignUpActivity : BaseActivity(), View.OnClickListener {
 
                         FirestoreHandler().registerUser(this, user)
                     } else {
-                        showErrorSnackBar("Oops! Something went wrong! Please, try again!")
-                        Log.e("Error", task.exception!!.message.toString())
+                        cancelProgressDialog()
+                        task.exception!!.localizedMessage?.let { showErrorSnackBar(it) }
                     }
                 }
         }

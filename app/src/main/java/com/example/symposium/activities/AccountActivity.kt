@@ -16,6 +16,7 @@ import com.example.symposium.models.User
 import com.example.symposium.utils.BaseActivity
 import com.example.symposium.utils.Constants
 import timber.log.Timber
+import java.lang.Exception
 
 
 class AccountActivity : BaseActivity(), View.OnClickListener {
@@ -140,11 +141,11 @@ class AccountActivity : BaseActivity(), View.OnClickListener {
         pictureDialog.setItems(pictureDialogItems) { _, which ->
             when (which) {
                 0 -> {
-                    photoSaver.checkGalleryPermissions()
+                    photoSaver.checkGalleryPermissions(this)
                     updateUserDetails()
                 }
                 1 -> {
-                    photoSaver.checkCameraPermissions()
+                    photoSaver.checkCameraPermissions(this)
                     updateUserDetails()
                 }
             }

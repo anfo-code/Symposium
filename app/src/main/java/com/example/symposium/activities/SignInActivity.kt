@@ -72,6 +72,13 @@ open class SignInActivity : BaseActivity(), View.OnClickListener {
         finish()
     }
 
+
+    fun signInFailure(message: String) {
+        cancelProgressDialog()
+        showErrorSnackBar(message)
+        firestoreHandler.logOut(this, this)
+    }
+
     private fun validateForm(email: String, password: String): Boolean {
         return when {
             TextUtils.isEmpty(email) -> {
